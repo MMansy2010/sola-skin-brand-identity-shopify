@@ -1,0 +1,74 @@
+<section class="section-editorial-image" style="background-color: {{ section.settings.bg_color }}; {%- if section.settings.image != blank -%}background-image: url('{{ section.settings.image | image_url: width: 1800 }}'); background-size: cover; background-position: center;{%- else -%}background-image: linear-gradient(rgba(248, 246, 241, 0.72), rgba(248, 246, 241, 0.72)), url('{{ 'collection-editorial.jpg' | asset_url }}'); background-size: cover; background-position: center;{%- endif -%}">
+  <div class="page-container page-container-narrow">
+    
+    <div class="editorial-overlay-card">
+      <div class="gold-arc-divider" style="margin-top: 0;">
+        <span></span>
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+
+      <h2 class="editorial-quote">
+        {{ section.settings.quote | default: '„Frumusețea stă în simplitate.”' }}
+      </h2>
+
+      <p class="editorial-body">
+        {{ section.settings.body | default: 'Gesturi mici. Momente de liniște. O rutină care îți aparține.' }}
+      </p>
+
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-outline-gold">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Imagine & Citat Editorial",
+  "settings": [
+    {
+      "type": "text",
+      "id": "quote",
+      "label": "Citat / Titlu",
+      "default": "„Frumusețea stă în simplitate.”"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Text suport",
+      "default": "Gesturi mici. Momente de liniște. O rutină care îți aparține."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Text buton",
+      "default": "Explorează produsele"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link buton"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagine fundal editorială"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#EDE5DA"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Imagine & Citat Editorial"
+    }
+  ]
+}
+{% endschema %}

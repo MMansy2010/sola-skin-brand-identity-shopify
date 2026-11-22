@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Îngrijire personală & Echilibru",
+        "title": "Frumusețea începe cu <em>grija pentru tine</em>.",
+        "subtitle": "Transformă rutina zilnică într-un moment dedicat frumuseții și echilibrului tău. Descoperă o selecție minimalistă creată pentru momentele în care alegi să te pui pe primul loc.",
+        "primary_button_text": "Descoperă colecția",
+        "primary_button_link": "/collections/all",
+        "secondary_button_text": "Află povestea Sola Skin",
+        "secondary_button_link": "/pages/despre-noi",
+        "bg_color": "#FAF8F5"
+      }
+    },
+    "brand_intro": {
+      "type": "brand-intro",
+      "settings": {
+        "eyebrow": "Filosofia Sola Skin",
+        "heading": "Un moment doar pentru tine.",
+        "text": "Credem că îngrijirea pielii înseamnă mai mult decât o rutină. Este un moment în care încetinești ritmul, te reconectezi cu tine și alegi să-ți acorzi atenția pe care o meriți. Fiecare formulă este concepută pentru a aduce armonie, simplitate și o stare profundă de bine.",
+        "button_text": "Descoperă povestea noastră",
+        "button_link": "/pages/despre-noi",
+        "bg_color": "#F8F6F1"
+      }
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "Selecție Esențială",
+        "title": "Descoperă colecția",
+        "subtitle": "Produse esențiale pentru rutina ta de îngrijire.",
+        "products_to_show": 3,
+        "show_view_all": true,
+        "view_all_label": "Vezi toate produsele",
+        "bg_color": "#FFFFFF"
+      }
+    },
+    "routine_guide": {
+      "type": "routine-guide",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "Curățare delicată",
+            "description": "Pregătește tenul îndepărtând impuritățile cu o textură fină ce respectă bariera naturală a pielii."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "Revitalizare profundă",
+            "description": "Aplică câteva picături de serum pe tenul curat pentru o hidratare intensă și luminozitate fină."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "Hidratare de durată",
+            "description": "Sigilează hidratarea cu o cremă mătăsoasă ce lasă pielea catifelată pe parcursul întregii zile."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "eyebrow": "Ghidul Tău Zilnic",
+        "title": "Ritualul tău Sola Skin",
+        "subtitle": "Trei pași simpli pentru o piele luminoasă, protejată și echilibrată.",
+        "bg_color": "#F8F6F1"
+      }
+    },
+    "editorial_image": {
+      "type": "editorial-image",
+      "settings": {
+        "quote": "„Frumusețea stă în simplitate.”",
+        "body": "Gesturi mici. Momente de liniște. O rutină care îți aparține.",
+        "button_text": "Explorează produsele",
+        "button_link": "/collections/all",
+        "bg_color": "#EDE5DA"
+      }
+    },
+    "brand_values": {
+      "type": "brand-values",
+      "blocks": {
+        "val_1": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Grijă pentru tine",
+            "description": "Fiecare produs este creat pentru a transforma îngrijirea zilnică într-un ritual de calm și atenție personală."
+          }
+        },
+        "val_2": {
+          "type": "value",
+          "settings": {
+            "icon": "feather",
+            "title": "Simplitate",
+            "description": "O abordare curată, fără pași complicați, axată pe esențialul de care pielea ta are nevoie."
+          }
+        },
+        "val_3": {
+          "type": "value",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Eleganță",
+            "description": "Design atemporal, texturi fine și atenție la detalii în fiecare aspect al experienței Sola Skin."
+          }
+        },
+        "val_4": {
+          "type": "value",
+          "settings": {
+            "icon": "sun",
+            "title": "Ritualuri zilnice",
+            "description": "Momente de liniște create special pentru momentele în care alegi să te pui pe primul loc."
+          }
+        }
+      },
+      "block_order": [
+        "val_1",
+        "val_2",
+        "val_3",
+        "val_4"
+      ],
+      "settings": {
+        "bg_color": "#FFFFFF"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Rămâi aproape de Sola Skin.",
+        "text": "Abonează-te pentru noutăți, inspirație și momente dedicate îngrijirii tale.",
+        "button_label": "Abonează-mă",
+        "bg_color": "#F8F6F1"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brand_intro",
+    "featured_products",
+    "routine_guide",
+    "editorial_image",
+    "brand_values",
+    "newsletter"
+  ]
+}

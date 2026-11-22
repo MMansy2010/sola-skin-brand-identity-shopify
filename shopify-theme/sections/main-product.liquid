@@ -1,0 +1,506 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign price = current_variant.price
+  assign compare_at_price = current_variant.compare_at_price
+-%}
+
+<section class="section-main-product" data-product-id="{{ product.id }}" id="ProductSection-{{ section.id }}">
+  <div class="page-container">
+    <div class="product-detail-grid">
+      
+      <!-- Left Column: Product Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery-main">
+          {%- if product.featured_media != blank -%}
+            <img
+              src="{{ product.featured_media | image_url: width: 1000 }}"
+              alt="{{ product.featured_media.alt | default: product.title | escape }}"
+              id="ProductGalleryMainImage"
+              loading="eager"
+              width="1000"
+              height="1100"
+            >
+          {%- else -%}
+            {%- case product.handle -%}
+              {%- when 'serum-pentru-fata' or 'renewing-face-serum' -%}
+                <img src="{{ 'product-serum.jpg' | asset_url }}" alt="Serum pentru față — Sola Skin" id="ProductGalleryMainImage" width="1000" height="1100">
+              {%- when 'crema-hidratanta' or 'hydrating-cream' -%}
+                <img src="{{ 'product-cream.jpg' | asset_url }}" alt="Cremă hidratantă — Sola Skin" id="ProductGalleryMainImage" width="1000" height="1100">
+              {%- when 'gel-de-curatare-delicat' or 'gentle-cleanser' -%}
+                <img src="{{ 'product-cleanser.jpg' | asset_url }}" alt="Gel de curățare delicat — Sola Skin" id="ProductGalleryMainImage" width="1000" height="1100">
+              {%- else -%}
+                <img src="{{ 'product-serum.jpg' | asset_url }}" alt="{{ product.title | escape }}" id="ProductGalleryMainImage" width="1000" height="1100">
+            {%- endcase -%}
+          {%- endif -%}
+        </div>
+
+        <!-- Thumbnails Gallery -->
+        <div class="product-gallery-thumbs" role="region" aria-label="Galerie imagini produs">
+          {%- if product.media.size > 1 -%}
+            {%- for media in product.media -%}
+              <button
+                type="button"
+                class="product-thumb {% if forloop.first %}active{% endif %}"
+                data-full-src="{{ media | image_url: width: 1000 }}"
+                aria-label="Imagine {{ forloop.index }} din {{ product.media.size }}"
+              >
+                <img src="{{ media | image_url: width: 160 }}" alt="{{ media.alt | default: product.title | escape }}" loading="lazy" width="80" height="96">
+              </button>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Right Column: Product Information & Purchase Form -->
+      <div class="product-info-panel">
+        <div class="product-info-eyebrow">
+          {{ product.vendor | default: 'Sola Skin' }}{% if product.type != blank %} · {{ product.type }}{% endif %}
+        </div>
+
+        <h1 class="product-info-title">{{ product.title }}</h1>
+
+        <div class="product-info-price" data-product-price-wrapper>
+          {% render 'price', product: product, price: price, compare_at_price: compare_at_price %}
+        </div>
+
+        {%- if product.description != blank -%}
+          <div class="product-info-description">
+            {{ product.description }}
+          </div>
+        {%- elsif section.settings.default_description != blank -%}
+          <div class="product-info-description">
+            <p>{{ section.settings.default_description }}</p>
+          </div>
+        {%- endif -%}
+
+        <!-- Native Shopify Product Form with Ajax Handling -->
+        {%- form 'product', product, id: 'product-form-installment', class: 'product-form' -%}
+          {%- if current_variant -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}" id="ProductVariantId">
+          {%- else -%}
+            <input type="hidden" name="id" value="" id="ProductVariantId">
+          {%- endif -%}
+
+          {%- if product.has_only_default_variant == false -%}
+            <div class="product-options-wrapper" style="margin-bottom: 20px;">
+              {%- for option in product.options_with_values -%}
+                <label for="Option-{{ section.id }}-{{ forloop.index0 }}" style="display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px;">
+                  {{ option.name }}
+                </label>
+                <select
+                  id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                  name="options[{{ option.name | escape }}]"
+                  class="collection-sort-select product-option-selector"
+                  data-option-index="{{ forloop.index0 }}"
+                  style="width: 100%; margin-bottom: 16px;"
+                >
+                  {%- for value in option.values -%}
+                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                      {{ value }}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          <div class="product-form-row">
+            <div class="product-qty-selector">
+              <button type="button" class="qty-btn-minus" aria-label="Scade cantitatea">–</button>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" aria-label="{{ 'products.product.quantity' | t }}">
+              <button type="button" class="qty-btn-plus" aria-label="Crește cantitatea">+</button>
+            </div>
+
+            <button
+              type="submit"
+              name="add"
+              class="btn btn-primary btn-add-cart"
+              id="AddToCartBtn"
+              {% if current_variant == nil or current_variant.available == false %}disabled="disabled"{% endif %}
+            >
+              <span id="AddToCartText">
+                {%- if current_variant == nil -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif current_variant.available == false -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+            </button>
+          </div>
+
+          <div id="ProductFormErrorMessage" class="product-form-error" role="alert" aria-live="polite" style="display: none; color: #B43838; font-size: 0.88rem; margin-top: 10px;"></div>
+
+          {{ form | payment_button }}
+        {%- endform -%}
+
+        <!-- Information Accordions (Only displayed when real content exists) -->
+        <div class="product-accordion-group">
+          
+          <!-- Accordion 1: Descriere -->
+          {%- assign desc_content = product.description | default: section.settings.accordion_desc -%}
+          {%- if desc_content != blank -%}
+            <div class="product-accordion-item open">
+              <button type="button" class="product-accordion-trigger" aria-expanded="true">
+                <span>{{ 'products.product.description' | t }}</span>
+                {% render 'icon-chevron' %}
+              </button>
+              <div class="product-accordion-content">
+                {{ desc_content }}
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Accordion 2: Mod de utilizare -->
+          {%- if section.settings.accordion_usage != blank -%}
+            <div class="product-accordion-item">
+              <button type="button" class="product-accordion-trigger" aria-expanded="false">
+                <span>{{ 'products.product.how_to_use' | t }}</span>
+                {% render 'icon-chevron' %}
+              </button>
+              <div class="product-accordion-content">
+                <p>{{ section.settings.accordion_usage }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Accordion 3: Detalii produs -->
+          {%- if section.settings.accordion_details != blank -%}
+            <div class="product-accordion-item">
+              <button type="button" class="product-accordion-trigger" aria-expanded="false">
+                <span>{{ 'products.product.product_details' | t }}</span>
+                {% render 'icon-chevron' %}
+              </button>
+              <div class="product-accordion-content">
+                <p>{{ section.settings.accordion_details }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Accordion 4: Ingrediente -->
+          {%- if section.settings.accordion_ingredients != blank -%}
+            <div class="product-accordion-item">
+              <button type="button" class="product-accordion-trigger" aria-expanded="false">
+                <span>{{ 'products.product.ingredients' | t }}</span>
+                {% render 'icon-chevron' %}
+              </button>
+              <div class="product-accordion-content">
+                <p>{{ section.settings.accordion_ingredients }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Accordion 5: Livrare și retur -->
+          {%- if section.settings.accordion_shipping != blank -%}
+            <div class="product-accordion-item">
+              <button type="button" class="product-accordion-trigger" aria-expanded="false">
+                <span>{{ 'products.product.shipping_returns' | t }}</span>
+                {% render 'icon-chevron' %}
+              </button>
+              <div class="product-accordion-content">
+                <p>{{ section.settings.accordion_shipping }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Product Variants JSON for dynamic option matching -->
+<script type="application/json" id="ProductVariants-{{ section.id }}">
+  {{ product.variants | json }}
+</script>
+
+<script>
+  // PDP Interactive Controller: Stepper, Variant Selector & Ajax Cart Integration
+  document.addEventListener('DOMContentLoaded', function() {
+    var minusBtn = document.querySelector('.qty-btn-minus');
+    var plusBtn = document.querySelector('.qty-btn-plus');
+    var qtyInput = document.getElementById('Quantity');
+
+    if (minusBtn && qtyInput) {
+      minusBtn.addEventListener('click', function() {
+        qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+      });
+    }
+    if (plusBtn && qtyInput) {
+      plusBtn.addEventListener('click', function() {
+        qtyInput.value = (parseInt(qtyInput.value, 10) || 1) + 1;
+      });
+    }
+
+    // Dynamic Variant Change Handler
+    var variantDataEl = document.getElementById('ProductVariants-{{ section.id }}');
+    var optionSelectors = document.querySelectorAll('.product-option-selector');
+    var variantIdInput = document.getElementById('ProductVariantId');
+    var addToCartBtn = document.getElementById('AddToCartBtn');
+    var addToCartText = document.getElementById('AddToCartText');
+    var priceWrapper = document.querySelector('[data-product-price-wrapper]');
+    var mainImage = document.getElementById('ProductGalleryMainImage');
+
+    var variants = [];
+    if (variantDataEl) {
+      try {
+        variants = JSON.parse(variantDataEl.textContent || '[]');
+      } catch (e) {
+        variants = [];
+      }
+    }
+
+    function onOptionChange() {
+      var selectedOptions = Array.from(optionSelectors).map(function(s) { return s.value; });
+      var matchedVariant = variants.find(function(v) {
+        return selectedOptions.every(function(optVal, idx) {
+          return v.options && v.options[idx] === optVal;
+        });
+      });
+
+      if (matchedVariant) {
+        if (variantIdInput) variantIdInput.value = matchedVariant.id;
+        
+        // Update URL ?variant=
+        if (window.history && window.history.replaceState) {
+          var newUrl = new URL(window.location.href);
+          newUrl.searchParams.set('variant', matchedVariant.id);
+          window.history.replaceState({ path: newUrl.toString() }, '', newUrl.toString());
+        }
+
+        // Update main product image if variant has an associated image
+        var variantImgSrc = '';
+        if (matchedVariant.featured_image && matchedVariant.featured_image.src) {
+          variantImgSrc = matchedVariant.featured_image.src;
+        } else if (matchedVariant.featured_media && matchedVariant.featured_media.src) {
+          variantImgSrc = matchedVariant.featured_media.src;
+        }
+
+        if (variantImgSrc && mainImage) {
+          mainImage.src = variantImgSrc;
+          // Sync active thumbnail if one matches
+          var thumbs = document.querySelectorAll('.product-thumb');
+          thumbs.forEach(function(thumb) {
+            var thumbSrc = thumb.getAttribute('data-full-src');
+            if (thumbSrc && (variantImgSrc.indexOf(thumbSrc) !== -1 || thumbSrc.indexOf(variantImgSrc) !== -1)) {
+              thumbs.forEach(function(t) { t.classList.remove('active'); });
+              thumb.classList.add('active');
+            }
+          });
+        }
+
+        // Update Price display safely using DOM nodes and textContent (no innerHTML)
+        if (priceWrapper && window.SolaTheme && typeof window.SolaTheme.formatMoney === 'function') {
+          priceWrapper.innerHTML = '';
+          var regularSpan = document.createElement('span');
+          regularSpan.className = 'price-item price-regular';
+          regularSpan.textContent = window.SolaTheme.formatMoney(matchedVariant.price);
+          priceWrapper.appendChild(regularSpan);
+
+          if (matchedVariant.compare_at_price && matchedVariant.compare_at_price > matchedVariant.price) {
+            priceWrapper.appendChild(document.createTextNode(' '));
+            var compareSpan = document.createElement('span');
+            compareSpan.className = 'price-item price-compare';
+            compareSpan.textContent = window.SolaTheme.formatMoney(matchedVariant.compare_at_price);
+            priceWrapper.appendChild(compareSpan);
+          }
+        }
+
+        // Update Availability Button
+        if (matchedVariant.available) {
+          if (addToCartBtn) addToCartBtn.removeAttribute('disabled');
+          if (addToCartText) addToCartText.textContent = {{ 'products.product.add_to_cart' | t | json }};
+        } else {
+          if (addToCartBtn) addToCartBtn.setAttribute('disabled', 'disabled');
+          if (addToCartText) addToCartText.textContent = {{ 'products.product.sold_out' | t | json }};
+        }
+      } else {
+        // Variant combination doesn't exist
+        if (variantIdInput) variantIdInput.value = '';
+        if (addToCartBtn) addToCartBtn.setAttribute('disabled', 'disabled');
+        if (addToCartText) addToCartText.textContent = {{ 'products.product.unavailable' | t | json }};
+      }
+    }
+
+    if (optionSelectors.length > 0 && variants.length > 0) {
+      // Respect initial URL ?variant= parameter
+      var urlParams = new URLSearchParams(window.location.search);
+      var initialVariantId = urlParams.get('variant');
+      if (initialVariantId) {
+        var foundVariant = variants.find(function(v) { return String(v.id) === String(initialVariantId); });
+        if (foundVariant && foundVariant.options) {
+          optionSelectors.forEach(function(sel, optIdx) {
+            if (foundVariant.options[optIdx]) {
+              sel.value = foundVariant.options[optIdx];
+            }
+          });
+        }
+      }
+
+      optionSelectors.forEach(function(sel) {
+        sel.addEventListener('change', onOptionChange);
+      });
+
+      // Run on initialization to sync states and image
+      onOptionChange();
+    }
+
+    // Intercept native PDP form submission to use Shopify Ajax API safely
+    var form = document.getElementById('product-form-installment');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        var submitBtn = document.getElementById('AddToCartBtn');
+        var errorEl = document.getElementById('ProductFormErrorMessage');
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.style.display = 'none';
+        }
+
+        // Check if submission was triggered by standard Add to Cart button vs Shopify dynamic accelerated checkout
+        var isStandardAdd = false;
+        if (e.submitter) {
+          isStandardAdd = (e.submitter === submitBtn || e.submitter.id === 'AddToCartBtn' || e.submitter.name === 'add');
+        } else {
+          // Fallback if browser does not support e.submitter
+          isStandardAdd = (document.activeElement === submitBtn || (document.activeElement && document.activeElement.id === 'AddToCartBtn'));
+        }
+
+        // If user clicked Shopify Accelerated Payment Button (Shop Pay, Google Pay, Apple Pay),
+        // do NOT prevent default; allow native Shopify checkout pipeline to execute.
+        if (!isStandardAdd) {
+          return;
+        }
+
+        e.preventDefault();
+
+        var formData = new FormData(form);
+        var rawId = variantIdInput ? variantIdInput.value : formData.get('id');
+        var variantId = parseInt(rawId, 10);
+        var quantity = Math.max(1, parseInt(formData.get('quantity') || 1, 10));
+
+        if (!variantId || isNaN(variantId) || variantId <= 0) {
+          if (errorEl) {
+            errorEl.textContent = 'Vă rugăm să selectați o opțiune validă a produsului.';
+            errorEl.style.display = 'block';
+          }
+          return;
+        }
+
+        // Prevent adding unavailable variant
+        if (variants && variants.length > 0) {
+          var targetVar = variants.find(function(v) { return v.id === variantId; });
+          if (targetVar && !targetVar.available) {
+            if (errorEl) {
+              errorEl.textContent = {{ 'products.product.sold_out' | t | json }};
+              errorEl.style.display = 'block';
+            }
+            return;
+          }
+        }
+
+        if (submitBtn) submitBtn.setAttribute('disabled', 'disabled');
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: quantity
+          })
+        })
+        .then(function(res) {
+          return res.json().then(function(data) {
+            return { ok: res.ok, status: res.status, data: data };
+          }).catch(function() {
+            return { ok: res.ok, status: res.status, data: {} };
+          });
+        })
+        .then(function(response) {
+          if (!response.ok) {
+            var msg = (response.data && (response.data.description || response.data.message)) || 'Produsul nu a putut fi adăugat în coș.';
+            if (errorEl) {
+              errorEl.textContent = msg;
+              errorEl.style.display = 'block';
+            }
+          } else {
+            // Update cart via Ajax and open drawer ONLY after cart refresh completes
+            if (window.SolaTheme && typeof window.SolaTheme.fetchCart === 'function') {
+              window.SolaTheme.fetchCart(function(err) {
+                if (!err && typeof window.openCartDrawer === 'function') {
+                  window.openCartDrawer();
+                }
+              });
+            } else if (typeof window.openCartDrawer === 'function') {
+              window.openCartDrawer();
+            }
+          }
+        })
+        .catch(function(err) {
+          if (errorEl) {
+            errorEl.textContent = 'A apărut o problemă de conexiune. Vă rugăm să încercați din nou.';
+            errorEl.style.display = 'block';
+          }
+        })
+        .finally(function() {
+          if (submitBtn) submitBtn.removeAttribute('disabled');
+        });
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Pagină Produs",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Afișează butoane de distribuire",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "default_description",
+      "label": "Descriere implicită produs",
+      "info": "Afișată doar dacă descrierea produsului este goală. Lăsați gol pentru a ascunde."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_desc",
+      "label": "Text acordion: Descriere",
+      "info": "Afișat doar dacă descrierea produsului este goală. Lăsați gol pentru a ascunde."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_usage",
+      "label": "Text acordion: Mod de utilizare",
+      "info": "Lăsați necompletat pentru a ascunde acest acordion."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_details",
+      "label": "Text acordion: Detalii produs",
+      "info": "Lăsați necompletat pentru a ascunde acest acordion."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_ingredients",
+      "label": "Text acordion: Ingrediente",
+      "info": "Lăsați necompletat pentru a ascunde acest acordion."
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_shipping",
+      "label": "Text acordion: Livrare și retur",
+      "info": "Lăsați necompletat pentru a ascunde acest acordion."
+    }
+  ]
+}
+{% endschema %}

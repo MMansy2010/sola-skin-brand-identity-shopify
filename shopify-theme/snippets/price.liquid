@@ -1,0 +1,31 @@
+{% comment %}
+  Renders product price using Shopify store currency settings
+  Accepts:
+  - product: {Object} Product Liquid object
+  - price: {Number} Optional price in cents
+  - compare_at_price: {Number} Optional compare-at price in cents
+{% endcomment %}
+
+{%- liquid
+  assign target_price = price
+  if target_price == blank and product != blank
+    assign target_price = product.selected_or_first_available_variant.price | default: product.price
+  endif
+
+  assign target_compare = compare_at_price
+  if target_compare == blank and product != blank
+    assign target_compare = product.selected_or_first_available_variant.compare_at_price | default: product.compare_at_price
+  endif
+-%}
+
+{%- if target_price != blank -%}
+  <span class="price-item price-regular">
+    {{ target_price | money }}
+  </span>
+
+  {%- if target_compare != blank and target_compare > target_price -%}
+    <span class="price-item price-compare">
+      {{ target_compare | money }}
+    </span>
+  {%- endif -%}
+{%- endif -%}

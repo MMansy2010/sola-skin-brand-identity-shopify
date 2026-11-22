@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+config.yml
+
+# Temporary & node files
+*.log
+node_modules/
+dist/
+tmp/

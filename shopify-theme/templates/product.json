@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {
+        "show_share_buttons": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Completează-ți rutina"
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

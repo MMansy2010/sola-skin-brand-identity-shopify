@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 330" width="460" height="330">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&amp;family=Montserrat:wght@400;500&amp;display=swap');
+      .brand-title-dark {
+        font-family: 'Cormorant Garamond', 'Bodoni 72', 'Didot', Georgia, serif;
+        font-weight: 400;
+        letter-spacing: -3px;
+        fill: #F8F6F1;
+      }
+      .brand-sub-dark {
+        font-family: 'Montserrat', 'Avenir Next', Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: 14px;
+        fill: #F8F6F1;
+      }
+    </style>
+    <linearGradient id="goldGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D8AB" />
+      <stop offset="50%" stop-color="#D4AF7A" />
+      <stop offset="100%" stop-color="#B88E52" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(230, 190)">
+    <!-- Elegant golden arc -->
+    <path d="M -160 -122 Q 0 -270 160 -122" fill="none" stroke="url(#goldGradDark)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M -205 -122 H -175 M 175 -122 H 205" stroke="url(#goldGradDark)" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="0" cy="-210" r="3.5" fill="url(#goldGradDark)"/>
+    <!-- Brand wordmark Sola -->
+    <text class="brand-title-dark" x="0" y="48" font-size="185" text-anchor="middle">Sola</text>
+    <!-- Dividing golden lines & Skin -->
+    <path d="M -115 95 H -60 M 60 95 H 115" stroke="url(#goldGradDark)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="0" cy="95" r="1.5" fill="url(#goldGradDark)"/>
+    <text class="brand-sub-dark" x="7" y="112" font-size="38" text-anchor="middle">Skin</text>
+  </g>
+</svg>

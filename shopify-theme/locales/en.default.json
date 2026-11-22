@@ -1,0 +1,162 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "search": "Search",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "share": "Share",
+    "concept_badge": "Sola Skin Concept",
+    "configure_in_admin": "Configure product in Shopify Admin",
+    "add_product_admin": "Add product in store",
+    "back_to_home": "Back to homepage"
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "routine": "Your Routine",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "buy_now": "Buy now",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "in_stock": "In stock",
+      "new": "New",
+      "view_details": "View details",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "description": "Description",
+      "how_to_use": "How to use",
+      "product_details": "Product details",
+      "ingredients": "Ingredients",
+      "shipping_returns": "Shipping & returns",
+      "description_placeholder": "Details about formula properties and daily care integration.",
+      "usage_placeholder": "Application instructions and recommendations are specified on product packaging.",
+      "details_placeholder": "Technical specifications and product volume can be configured in admin.",
+      "ingredients_placeholder": "The complete INCI ingredient list is available on the product label.",
+      "shipping_placeholder": "Shipping terms and return conditions are determined by merchant policy.",
+      "share": "Share this product",
+      "recommended": "Recommended products",
+      "volume": "Volume"
+    }
+  },
+  "collections": {
+    "title": "All products",
+    "empty": "No products found in this collection.",
+    "sort_by": "Sort by",
+    "filter_by": "Filter by",
+    "price": "Price",
+    "availability": "Availability",
+    "product_count": "{{ count }} products",
+    "sorting": {
+      "featured": "Featured",
+      "best_selling": "Best selling",
+      "title_ascending": "Alphabetically, A-Z",
+      "title_descending": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_ascending": "Date, old to new",
+      "date_descending": "Date, new to old"
+    }
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "continue_shopping": "Continue shopping",
+    "subtotal": "Subtotal",
+    "taxes_included_shipping_at_checkout": "Taxes included. Shipping calculated at checkout.",
+    "checkout": "Check out",
+    "remove": "Remove",
+    "update": "Update",
+    "note": "Special instructions for seller",
+    "view_cart": "View cart",
+    "item_added": "Item added to cart"
+  },
+  "newsletter": {
+    "title": "Stay close to Sola Skin.",
+    "subtitle": "Subscribe for updates, inspiration, and rituals dedicated to your care.",
+    "email_placeholder": "Your email address",
+    "button_label": "Subscribe",
+    "success": "Thank you for subscribing! Welcome to Sola Skin.",
+    "error": "An error occurred. Please check your email address."
+  },
+  "sections": {
+    "featured_products": {
+      "title": "Discover the collection",
+      "subtitle": "Essential products for your daily care routine.",
+      "view_all": "View all products"
+    },
+    "brand_intro": {
+      "heading": "A moment just for you.",
+      "text": "We believe skincare is more than a routine. It is a moment to slow down, reconnect, and grant yourself the care you deserve.",
+      "button_label": "Our story"
+    },
+    "editorial": {
+      "heading": "Beauty lies in simplicity.",
+      "body": "Small gestures. Quiet moments. A routine of your own."
+    },
+    "brand_values": {
+      "value_1": "Care for yourself",
+      "value_1_desc": "Every product is designed to turn daily care into a ritual of serenity.",
+      "value_2": "Simplicity",
+      "value_2_desc": "A clean approach focused on the essentials your skin needs.",
+      "value_3": "Elegance",
+      "value_3_desc": "Timeless design, refined textures, and meticulous craftsmanship.",
+      "value_4": "Daily rituals",
+      "value_4_desc": "Calm moments created for when you choose to put yourself first."
+    },
+    "routine": {
+      "title": "Your Sola Skin Ritual",
+      "subtitle": "Three gentle steps to radiant, balanced skin",
+      "step_1_title": "01. Gentle Cleansing",
+      "step_1_desc": "Gently remove impurities while preserving your skin's natural moisture barrier.",
+      "step_2_title": "02. Deep Revitalization",
+      "step_2_desc": "Apply a few drops of renewing serum onto cleansed skin for supple hydration.",
+      "step_3_title": "03. Lasting Moisture",
+      "step_3_desc": "Seal in hydration with a silky cream that leaves skin soft and protected all day."
+    }
+  },
+  "footer": {
+    "brand_tagline": "Sola Skin — Beauty. Care. You.",
+    "brand_desc": "Minimalist skincare for the moments you choose to prioritize yourself.",
+    "quick_links": "Navigation",
+    "customer_care": "Customer care",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacy_policy": "Privacy policy",
+    "terms_of_service": "Terms of service",
+    "shipping_policy": "Shipping policy",
+    "refund_policy": "Refund policy"
+  },
+  "search": {
+    "title": "Search results",
+    "placeholder": "Search products or rituals...",
+    "no_results": "No results found for “{{ terms }}”. Try another search term.",
+    "results_with_count": "{{ count }} results found for “{{ terms }}”"
+  },
+  "404": {
+    "title": "Page not found",
+    "subtext": "The page you are looking for does not exist or has moved.",
+    "button": "Back to homepage"
+  },
+  "templates": {
+    "contact": {
+      "form": {
+        "name": "Full name",
+        "email": "Email address",
+        "message": "Message",
+        "submit": "Send message",
+        "post_success": "Your message has been sent successfully.",
+        "post_success_desc": "Thank you for contacting us. The Sola Skin team will get back to you shortly.",
+        "error_heading": "Please correct the errors below:"
+      }
+    }
+  }
+}

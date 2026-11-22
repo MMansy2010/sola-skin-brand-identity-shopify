@@ -1,0 +1,116 @@
+<section class="section-routine" style="background-color: {{ section.settings.bg_color }};">
+  <div class="page-container">
+    
+    <div class="section-header">
+      <div class="section-eyebrow">{{ section.settings.eyebrow | default: 'Ghidul Tău Zilnic' }}</div>
+      <h2>{{ section.settings.title | default: 'Ritualul tău Sola Skin' }}</h2>
+      <p>{{ section.settings.subtitle | default: 'Trei pași simpli pentru o piele luminoasă, protejată și echilibrată.' }}</p>
+      
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="routine-steps-grid">
+      {%- for block in section.blocks -%}
+        <div class="routine-step-card" {{ block.shopify_attributes }}>
+          <div class="routine-step-num">{{ block.settings.step_number }}</div>
+          <h3 class="routine-step-title">{{ block.settings.title }}</h3>
+          <p class="routine-step-desc">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ghid Rutină Zilnică",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Etichetă (Eyebrow)",
+      "default": "Ghidul Tău Zilnic"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titlu",
+      "default": "Ritualul tău Sola Skin"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitlu",
+      "default": "Trei pași simpli pentru o piele luminoasă, protejată și echilibrată."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#F8F6F1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Pas din rutină",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Număr pas",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu pas",
+          "default": "Curățare delicată"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descriere pas",
+          "default": "Îndepărtează delicat impuritățile respectând echilibrul și bariera naturală de hidratare a tenului."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ghid Rutină Zilnică",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "Curățare delicată",
+            "description": "Pregătește tenul îndepărtând impuritățile cu o textură fină ce respectă bariera naturală a pielii."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "Revitalizare profundă",
+            "description": "Aplică câteva picături de serum pe tenul curat pentru o hidratare intensă și luminozitate fină."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "Hidratare de durată",
+            "description": "Sigilează hidratarea cu o cremă mătăsoasă ce lasă pielea catifelată pe parcursul întregii zile."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,162 @@
+{
+  "general": {
+    "skip_to_content": "Sari la conținut",
+    "search": "Caută",
+    "close": "Închide",
+    "back": "Înapoi",
+    "next": "Următoarea",
+    "loading": "Se încarcă...",
+    "share": "Distribuie",
+    "concept_badge": "Concept Sola Skin",
+    "configure_in_admin": "Configurați produsul în Shopify Admin",
+    "add_product_admin": "Adaugă produs în magazin",
+    "back_to_home": "Înapoi la pagina principală"
+  },
+  "navigation": {
+    "home": "Acasă",
+    "products": "Produse",
+    "about": "Despre noi",
+    "routine": "Rutina ta",
+    "contact": "Contact",
+    "menu": "Meniu"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Adaugă în coș",
+      "buy_now": "Cumpără acum",
+      "sold_out": "Epuizat",
+      "unavailable": "Indisponibil",
+      "quantity": "Cantitate",
+      "in_stock": "În stoc",
+      "new": "Nou",
+      "view_details": "Vezi detalii",
+      "regular_price": "Preț întreg",
+      "sale_price": "Preț redus",
+      "description": "Descriere",
+      "how_to_use": "Mod de utilizare",
+      "product_details": "Detalii produs",
+      "ingredients": "Ingrediente",
+      "shipping_returns": "Livrare și retur",
+      "description_placeholder": "Detalii despre formula și modul de integrare în rutina de îngrijire.",
+      "usage_placeholder": "Instrucțiunile de aplicare și recomandările de utilizare sunt specificate pe ambalaj.",
+      "details_placeholder": "Specificațiile tehnice și volumul produsului pot fi configurate în administrare.",
+      "ingredients_placeholder": "Lista completă de ingrediente (INCI) se regăsește pe eticheta produsului.",
+      "shipping_placeholder": "Termenii de expediere și condițiile de retur sunt stabilite de comerciant conform politicii magazinului.",
+      "share": "Distribuie acest produs",
+      "recommended": "Produse recomandate",
+      "volume": "Volum"
+    }
+  },
+  "collections": {
+    "title": "Toate produsele",
+    "empty": "Niciun produs găsit în această colecție.",
+    "sort_by": "Sortează după",
+    "filter_by": "Filtrează",
+    "price": "Preț",
+    "availability": "Disponibilitate",
+    "product_count": "{{ count }} produse",
+    "sorting": {
+      "featured": "Recomandate",
+      "best_selling": "Cele mai vândute",
+      "title_ascending": "Alfabetic, A-Z",
+      "title_descending": "Alfabetic, Z-A",
+      "price_ascending": "Preț: crescător",
+      "price_descending": "Preț: descrescător",
+      "date_ascending": "Dată: vechi la nou",
+      "date_descending": "Dată: nou la vechi"
+    }
+  },
+  "cart": {
+    "title": "Coșul tău",
+    "empty": "Coșul tău este gol",
+    "continue_shopping": "Continuă cumpărăturile",
+    "subtotal": "Subtotal",
+    "taxes_included_shipping_at_checkout": "Taxele sunt incluse. Transportul este calculat la finalizarea comenzii.",
+    "checkout": "Finalizează comanda",
+    "remove": "Elimină",
+    "update": "Actualizează",
+    "note": "Instrucțiuni speciale pentru comandă",
+    "view_cart": "Vezi coșul complet",
+    "item_added": "Produsul a fost adăugat în coș"
+  },
+  "newsletter": {
+    "title": "Rămâi aproape de Sola Skin.",
+    "subtitle": "Abonează-te pentru noutăți, inspirație și momente dedicate îngrijirii tale.",
+    "email_placeholder": "Adresa ta de e-mail",
+    "button_label": "Abonează-mă",
+    "success": "Îți mulțumim pentru abonare! Bine ai venit în universul Sola Skin.",
+    "error": "A apărut o eroare. Te rugăm să verifici adresa introdusă."
+  },
+  "sections": {
+    "featured_products": {
+      "title": "Descoperă colecția",
+      "subtitle": "Produse esențiale pentru rutina ta de îngrijire.",
+      "view_all": "Vezi toate produsele"
+    },
+    "brand_intro": {
+      "heading": "Un moment doar pentru tine.",
+      "text": "Credem că îngrijirea pielii înseamnă mai mult decât o rutină. Este un moment în care încetinești ritmul, te reconectezi cu tine și alegi să-ți acorzi atenția pe care o meriți.",
+      "button_label": "Află povestea noastră"
+    },
+    "editorial": {
+      "heading": "Frumusețea stă în simplitate.",
+      "body": "Gesturi mici. Momente de liniște. O rutină care îți aparține."
+    },
+    "brand_values": {
+      "value_1": "Grijă pentru tine",
+      "value_1_desc": "Fiecare produs este creat pentru a transforma îngrijirea zilnică într-un ritual de calm și atenție personală.",
+      "value_2": "Simplitate",
+      "value_2_desc": "O abordare curată, fără pași complicați, axată pe esențialul de care pielea ta are nevoie.",
+      "value_3": "Eleganță",
+      "value_3_desc": "Design atemporal, texturi fine și atenție la detalii în fiecare aspect al experienței Sola Skin.",
+      "value_4": "Ritualuri zilnice",
+      "value_4_desc": "Momente de liniște create special pentru momentele în care alegi să te pui pe primul loc."
+    },
+    "routine": {
+      "title": "Ritualul tău Sola Skin",
+      "subtitle": "Trei pași simpli pentru o piele luminoasă și echilibrată",
+      "step_1_title": "01. Curățare delicată",
+      "step_1_desc": "Pregătește tenul îndepărtând impuritățile cu o textură fină ce respectă bariera naturală a pielii.",
+      "step_2_title": "02. Revitalizare profundă",
+      "step_2_desc": "Aplică câteva picături de serum pe tenul curat pentru un plus de hidratare și confort.",
+      "step_3_title": "03. Hidratare de durată",
+      "step_3_desc": "Sigilează hidratarea cu o cremă mătăsoasă ce lasă pielea catifelată pe parcursul întregii zile."
+    }
+  },
+  "footer": {
+    "brand_tagline": "Sola Skin — Beauty. Care. You.",
+    "brand_desc": "Îngrijire minimalistă pentru momentele în care alegi să te pui pe primul loc.",
+    "quick_links": "Navigare",
+    "customer_care": "Asistență",
+    "contact": "Contact",
+    "rights": "Toate drepturile rezervate.",
+    "privacy_policy": "Politica de confidențialitate",
+    "terms_of_service": "Termeni și condiții",
+    "shipping_policy": "Politica de livrare",
+    "refund_policy": "Politica de retur"
+  },
+  "search": {
+    "title": "Rezultatele căutării",
+    "placeholder": "Caută un produs sau o rutină...",
+    "no_results": "Niciun rezultat găsit pentru „{{ terms }}”. Încearcă un alt termen.",
+    "results_with_count": "{{ count }} rezultate găsite pentru „{{ terms }}”"
+  },
+  "404": {
+    "title": "Pagina nu a fost găsită",
+    "subtext": "Pagina pe care o căutați nu există sau a fost mutată.",
+    "button": "Înapoi la pagina principală"
+  },
+  "templates": {
+    "contact": {
+      "form": {
+        "name": "Nume complet",
+        "email": "Adresă de e-mail",
+        "message": "Mesaj",
+        "submit": "Trimite mesajul",
+        "post_success": "Mesajul dumneavoastră a fost trimis cu succes.",
+        "post_success_desc": "Vă mulțumim că ne-ați contactat. Echipa Sola Skin vă va răspunde în cel mai scurt timp.",
+        "error_heading": "Vă rugăm să corectați erorile de mai jos:"
+      }
+    }
+  }
+}

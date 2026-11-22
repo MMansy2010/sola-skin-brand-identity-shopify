@@ -1,0 +1,123 @@
+<section class="section-hero" style="background-color: {{ section.settings.bg_color }};">
+  <div class="page-container">
+    <div class="hero-grid">
+      
+      <!-- Hero Editorial Copy -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          {{ section.settings.eyebrow | default: 'Îngrijire personală & Echilibru' }}
+        </div>
+        
+        <h1 class="hero-title">
+          {{ section.settings.title | default: 'Frumusețea începe cu <em>grija pentru tine</em>.' }}
+        </h1>
+
+        <p class="hero-subtitle">
+          {{ section.settings.subtitle | default: 'Transformă rutina zilnică într-un moment dedicat frumuseții și echilibrului tău. O selecție minimalistă creată pentru când alegi să te pui pe primul loc.' }}
+        </p>
+
+        <div class="hero-cta-group">
+          {%- if section.settings.primary_button_text != blank -%}
+            <a href="{{ section.settings.primary_button_link | default: '/collections/all' }}" class="btn btn-primary">
+              {{ section.settings.primary_button_text }}
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.secondary_button_text != blank -%}
+            <a href="{{ section.settings.secondary_button_link | default: '/pages/despre-noi' }}" class="link-editorial">
+              {{ section.settings.secondary_button_text }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Hero Visual / Mockup Arrangement -->
+      <div class="hero-media">
+        <div class="hero-image-wrapper">
+          {%- if section.settings.image != blank -%}
+            <img
+              src="{{ section.settings.image | image_url: width: 1400 }}"
+              alt="{{ section.settings.title | escape }}"
+              width="1400"
+              height="875"
+              loading="eager"
+            >
+          {%- else -%}
+            <img
+              src="{{ 'hero-skincare.jpg' | asset_url }}"
+              alt="Colecția Sola Skin — Ritual de frumusețe"
+              width="1400"
+              height="875"
+              loading="eager"
+            >
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Erou Editorial (Hero)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Text de introducere (Eyebrow)",
+      "default": "Îngrijire personală & Echilibru"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titlu principal",
+      "default": "Frumusețea începe cu grija pentru tine."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Text secundar",
+      "default": "Transformă rutina zilnică într-un moment dedicat frumuseții și echilibrului tău. O colecție minimalistă creată pentru când alegi să te pui pe primul loc."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Text buton principal",
+      "default": "Descoperă colecția"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Link buton principal"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Text link secundar",
+      "default": "Află povestea Sola Skin"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Link secundar"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagine principală Hero"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#FAF8F5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Erou Editorial (Hero)"
+    }
+  ]
+}
+{% endschema %}

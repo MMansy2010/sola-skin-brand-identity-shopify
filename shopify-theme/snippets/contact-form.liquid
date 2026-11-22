@@ -1,0 +1,135 @@
+{%- comment -%}
+  Renders the native Shopify Contact Form
+  Accepts:
+  - heading: {String} Optional heading above form
+  - text: {String} Optional descriptive text above form
+{%- endcomment -%}
+
+<div class="contact-form-wrapper">
+  {%- if heading != blank -%}
+    <h2 class="contact-form-heading">{{ heading | escape }}</h2>
+  {%- endif -%}
+  {%- if text != blank -%}
+    <p class="contact-form-subtext">{{ text }}</p>
+  {%- endif -%}
+
+  {%- form 'contact', id: 'ContactForm', class: 'sola-contact-form' -%}
+    {%- if form.posted_successfully? -%}
+      <div class="contact-status-card contact-status-card--success" tabindex="-1" autofocus role="status">
+        <svg class="contact-status-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="8 12 11 15 16 9"/>
+        </svg>
+        <div class="contact-status-content">
+          <p class="contact-status-title">
+            {{ 'templates.contact.form.post_success' | t | default: 'Mesajul dumneavoastră a fost trimis cu succes.' }}
+          </p>
+          <p class="contact-status-desc">
+            {{ 'templates.contact.form.post_success_desc' | t | default: 'Vă mulțumim că ne-ați contactat. Echipa Sola Skin vă va răspunde în cel mai scurt timp.' }}
+          </p>
+        </div>
+      </div>
+    {%- elsif form.errors -%}
+      <div class="contact-status-card contact-status-card--error" tabindex="-1" autofocus role="alert">
+        <svg class="contact-status-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div class="contact-status-content">
+          <p class="contact-status-title">
+            {{ 'templates.contact.form.error_heading' | t | default: 'Vă rugăm să corectați erorile de mai jos:' }}
+          </p>
+          <ul class="contact-error-list">
+            {%- for error in form.errors -%}
+              <li>
+                {%- if error == 'form' -%}
+                  {{ form.errors.messages[error] }}
+                {%- else -%}
+                  <a href="#ContactForm-{{ error }}" class="contact-error-link">
+                    {{ form.errors.translated_fields[error] | capitalize }}: {{ form.errors.messages[error] }}
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="contact-fields-grid">
+      <!-- Name Field (Required) -->
+      <div class="contact-field-group">
+        <label for="ContactForm-name" class="contact-field-label">
+          {{ 'templates.contact.form.name' | t | default: 'Nume complet' }}
+          <span class="contact-required-mark" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="ContactForm-name"
+          name="contact[name]"
+          class="contact-input"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          placeholder="ex. Elena Popescu"
+          autocomplete="name"
+          required="required"
+          aria-required="true"
+        >
+      </div>
+
+      <!-- Email Field (Required, type=email) -->
+      <div class="contact-field-group">
+        <label for="ContactForm-email" class="contact-field-label">
+          {{ 'templates.contact.form.email' | t | default: 'Adresă de e-mail' }}
+          <span class="contact-required-mark" aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="ContactForm-email"
+          name="contact[email]"
+          class="contact-input"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          placeholder="nume@exemplu.ro"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          required="required"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="ContactForm-email-error"
+          {% endif %}
+        >
+        {%- if form.errors contains 'email' -%}
+          <span id="ContactForm-email-error" class="contact-field-inline-error" role="alert">
+            {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Message Field (Required, textarea) -->
+    <div class="contact-field-group contact-field-group--full">
+      <label for="ContactForm-body" class="contact-field-label">
+        {{ 'templates.contact.form.message' | t | default: 'Mesaj' }}
+        <span class="contact-required-mark" aria-hidden="true">*</span>
+      </label>
+      <textarea
+        rows="6"
+        id="ContactForm-body"
+        name="contact[body]"
+        class="contact-input contact-textarea"
+        placeholder="Scrieți mesajul dumneavoastră aici..."
+        required="required"
+        aria-required="true"
+      >{{ form.body }}</textarea>
+    </div>
+
+    <!-- Submit Button labeled "Trimite mesajul" -->
+    <div class="contact-submit-row">
+      <button type="submit" class="btn btn-primary contact-submit-btn">
+        {{ 'templates.contact.form.submit' | t | default: 'Trimite mesajul' }}
+      </button>
+    </div>
+  {%- endform -%}
+</div>

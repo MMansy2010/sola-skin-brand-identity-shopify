@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <linearGradient id="editBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9F6F0" />
+      <stop offset="50%" stop-color="#EFE8DD" />
+      <stop offset="100%" stop-color="#E2D7C5" />
+    </linearGradient>
+    <linearGradient id="fabricSatin" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#EDE4D6" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#E3D7C5" stop-opacity="0.75" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#editBg)"/>
+
+  <!-- Elegant drape curves (Satin fabric aesthetics) -->
+  <path d="M 0 500 Q 300 420 600 580 T 1200 480 L 1200 900 L 0 900 Z" fill="url(#fabricSatin)"/>
+  <path d="M 0 620 Q 350 560 700 700 T 1200 640 L 1200 900 L 0 900 Z" fill="#E8DEC9" opacity="0.4"/>
+
+  <!-- Fine golden arc & circle -->
+  <circle cx="600" cy="400" r="280" fill="none" stroke="#D4AF7A" stroke-width="1.2" stroke-opacity="0.4"/>
+  <circle cx="600" cy="400" r="250" fill="none" stroke="#D4AF7A" stroke-width="0.8" stroke-dasharray="4 6" stroke-opacity="0.2"/>
+
+  <!-- Soft organic shadow of botanical branch (shadow play) -->
+  <g fill="#52483C" opacity="0.12" filter="blur(10px)">
+    <path d="M 1200 100 Q 950 250 750 420 Q 550 580 400 800 L 380 810 Q 540 600 740 440 Q 940 270 1200 130 Z"/>
+    <ellipse cx="880" cy="300" rx="45" ry="18" transform="rotate(-30 880 300)"/>
+    <ellipse cx="820" cy="360" rx="40" ry="16" transform="rotate(-15 820 360)"/>
+    <ellipse cx="760" cy="400" rx="48" ry="19" transform="rotate(-40 760 400)"/>
+    <ellipse cx="690" cy="470" rx="42" ry="17" transform="rotate(-20 690 470)"/>
+    <ellipse cx="620" cy="530" rx="46" ry="18" transform="rotate(-45 620 530)"/>
+    <ellipse cx="550" cy="610" rx="40" ry="16" transform="rotate(-25 550 610)"/>
+  </g>
+
+  <!-- Editorial Typography Quote Overlay -->
+  <g transform="translate(600, 420)">
+    <text font-family="'Cormorant Garamond', Georgia, serif" font-size="44" font-weight="400" font-style="italic" text-anchor="middle" fill="#1A1A1A">„Frumusețea stă în simplitate.”</text>
+    <line x1="-80" y1="40" x2="80" y2="40" stroke="#D4AF7A" stroke-width="1"/>
+    <text y="75" font-family="'Montserrat', sans-serif" font-size="12" font-weight="400" letter-spacing="3" text-anchor="middle" fill="#77716B">GESTURI MICI · MOMENTE DE LINIȘTE · O RUTINĂ CARE ÎȚI APARȚINE</text>
+  </g>
+</svg>

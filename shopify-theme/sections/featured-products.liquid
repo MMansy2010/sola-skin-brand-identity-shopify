@@ -1,0 +1,184 @@
+<section class="section-featured-products" style="background-color: {{ section.settings.bg_color }};">
+  <div class="page-container">
+    
+    <div class="section-header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="section-eyebrow">{{ section.settings.eyebrow | escape }}</div>
+      {%- endif -%}
+      <h2>{{ section.settings.title | default: 'Descoperă colecția' | escape }}</h2>
+      {%- if section.settings.subtitle != blank -%}
+        <p>{{ section.settings.subtitle | escape }}</p>
+      {%- endif -%}
+      
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="product-grid">
+      {%- assign target_collection = collections[section.settings.collection] -%}
+      
+      {%- if target_collection != blank and target_collection.products_count > 0 -%}
+        {%- for product in target_collection.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- elsif collections['all'] != blank and collections['all'].products_count > 0 -%}
+        {%- for product in collections['all'].products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Onboarding state: Clearly identified visual brand concepts (Non-purchasable placeholders) -->
+        
+        <!-- Concept 1: Serum pentru față -->
+        <div class="product-card product-card-placeholder">
+          <div class="product-card-media">
+            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="Serum pentru față — Concept Sola Skin" loading="lazy" width="700" height="840">
+            <div class="product-card-badge">
+              <span class="badge badge-gold">{{ 'general.concept_badge' | t }}</span>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-subtitle">Sola Skin · 30 ml</div>
+            <h3 class="product-card-title">Serum pentru față</h3>
+            <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 12px;">Un pas delicat în rutina ta zilnică de îngrijire.</p>
+            <div class="product-card-price">
+              <span style="font-size: 0.85rem; color: var(--color-taupe); font-style: italic;">
+                {{ 'general.configure_in_admin' | t }}
+              </span>
+            </div>
+            <div class="product-card-actions" style="margin-top: 14px;">
+              <a href="/admin/products" class="btn btn-secondary" style="width: 100%;">
+                {{ 'general.add_product_admin' | t }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concept 2: Cremă hidratantă -->
+        <div class="product-card product-card-placeholder">
+          <div class="product-card-media">
+            <img src="{{ 'product-cream.jpg' | asset_url }}" alt="Cremă hidratantă — Concept Sola Skin" loading="lazy" width="700" height="840">
+            <div class="product-card-badge">
+              <span class="badge badge-gold">{{ 'general.concept_badge' | t }}</span>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-subtitle">Sola Skin · 50 ml</div>
+            <h3 class="product-card-title">Cremă hidratantă</h3>
+            <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 12px;">Un moment de răsfăț pentru pielea ta, zi de zi.</p>
+            <div class="product-card-price">
+              <span style="font-size: 0.85rem; color: var(--color-taupe); font-style: italic;">
+                {{ 'general.configure_in_admin' | t }}
+              </span>
+            </div>
+            <div class="product-card-actions" style="margin-top: 14px;">
+              <a href="/admin/products" class="btn btn-secondary" style="width: 100%;">
+                {{ 'general.add_product_admin' | t }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concept 3: Gel de curățare delicat -->
+        <div class="product-card product-card-placeholder">
+          <div class="product-card-media">
+            <img src="{{ 'product-cleanser.jpg' | asset_url }}" alt="Gel de curățare delicat — Concept Sola Skin" loading="lazy" width="700" height="840">
+            <div class="product-card-badge">
+              <span class="badge badge-gold">{{ 'general.concept_badge' | t }}</span>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-subtitle">Sola Skin · 100 ml</div>
+            <h3 class="product-card-title">Gel de curățare delicat</h3>
+            <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 12px;">Un început delicat pentru rutina ta de îngrijire.</p>
+            <div class="product-card-price">
+              <span style="font-size: 0.85rem; color: var(--color-taupe); font-style: italic;">
+                {{ 'general.configure_in_admin' | t }}
+              </span>
+            </div>
+            <div class="product-card-actions" style="margin-top: 14px;">
+              <a href="/admin/products" class="btn btn-secondary" style="width: 100%;">
+                {{ 'general.add_product_admin' | t }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all and target_collection != blank -%}
+      <div style="text-align: center; margin-top: 60px;">
+        <a href="{{ target_collection.url }}" class="btn btn-secondary">
+          {{ section.settings.view_all_label | default: 'Vezi toate produsele' | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produse Recomandate",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Etichetă (Eyebrow)",
+      "default": "Selecție Esențială"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titlu secțiune",
+      "default": "Descoperă colecția"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitlu",
+      "default": "Produse esențiale pentru rutina ta de îngrijire."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colecție de afișat"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 12,
+      "step": 3,
+      "label": "Număr de produse",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Afișează buton 'Vezi toate'",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "Text buton 'Vezi toate'",
+      "default": "Vezi toate produsele"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produse Recomandate"
+    }
+  ]
+}
+{% endschema %}

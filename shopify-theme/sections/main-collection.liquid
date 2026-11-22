@@ -1,0 +1,130 @@
+{%- paginate collection.products by section.settings.products_per_page -%}
+
+<section class="section-collection-banner">
+  <div class="page-container">
+    <div class="editorial-tag">{{ 'navigation.products' | t }}</div>
+    <h1>{{ collection.title | default: 'Toate produsele' }}</h1>
+    {%- if collection.description != blank -%}
+      <div style="max-width: 600px; margin: 16px auto 0;" class="collection-description">
+        {{ collection.description }}
+      </div>
+    {%- else -%}
+      <p style="max-width: 600px; margin: 16px auto 0;">
+        Descoperă formule create cu grijă pentru armonia, frumusețea și confortul pielii tale. O rutină completă, simplă și eficientă.
+      </p>
+    {%- endif -%}
+
+    <div class="gold-arc-divider">
+      <span></span>
+      <svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="3"/></svg>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 40px 0 100px; background: #FFFFFF;">
+  <div class="page-container">
+    
+    <!-- Toolbar: Count & Working Sort -->
+    <div class="collection-toolbar">
+      <div class="collection-count">
+        {{ collection.products_count }} {{ 'collections.product_count' | t: count: collection.products_count }}
+      </div>
+
+      <div class="collection-sort-wrapper">
+        <label for="SortBy" style="font-size: 0.85rem; margin-right: 8px;">{{ 'collections.sort_by' | t }}:</label>
+        {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        <select
+          id="SortBy"
+          name="sort_by"
+          class="collection-sort-select"
+          aria-describedby="a11y-refresh-page-message"
+        >
+          <option value="manual" {% if sort_by == 'manual' %}selected="selected"{% endif %}>{{ 'collections.sorting.featured' | t }}</option>
+          <option value="best-selling" {% if sort_by == 'best-selling' %}selected="selected"{% endif %}>{{ 'collections.sorting.best_selling' | t }}</option>
+          <option value="title-ascending" {% if sort_by == 'title-ascending' %}selected="selected"{% endif %}>{{ 'collections.sorting.title_ascending' | t }}</option>
+          <option value="title-descending" {% if sort_by == 'title-descending' %}selected="selected"{% endif %}>{{ 'collections.sorting.title_descending' | t }}</option>
+          <option value="price-ascending" {% if sort_by == 'price-ascending' %}selected="selected"{% endif %}>{{ 'collections.sorting.price_ascending' | t }}</option>
+          <option value="price-descending" {% if sort_by == 'price-descending' %}selected="selected"{% endif %}>{{ 'collections.sorting.price_descending' | t }}</option>
+          <option value="created-descending" {% if sort_by == 'created-descending' %}selected="selected"{% endif %}>{{ 'collections.sorting.date_descending' | t }}</option>
+          <option value="created-ascending" {% if sort_by == 'created-ascending' %}selected="selected"{% endif %}>{{ 'collections.sorting.date_ascending' | t }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    {%- if collection.products.size > 0 -%}
+      <div class="product-grid">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+
+      <!-- Pagination Navigation -->
+      {%- if paginate.pages > 1 -%}
+        <div class="pagination-wrapper" style="margin-top: 60px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 14px;">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="btn btn-secondary" style="padding: 10px 20px;">
+              &larr; {{ 'general.back' | t }}
+            </a>
+          {%- endif -%}
+
+          <span style="font-size: 0.9rem; color: var(--color-muted);">
+            {{ paginate.current_page }} / {{ paginate.pages }}
+          </span>
+
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="btn btn-secondary" style="padding: 10px 20px;">
+              {{ 'general.next' | t }} &rarr;
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <!-- Empty Collection State -->
+      <div style="text-align: center; padding: 70px 20px; max-width: 500px; margin: 0 auto;">
+        <p style="font-size: 1.15rem; color: var(--color-muted); margin-bottom: 24px;">
+          {{ 'collections.empty' | t }}
+        </p>
+        <a href="{{ routes.root_url }}" class="btn btn-primary">
+          {{ 'general.back_to_home' | t }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{%- endpaginate -%}
+
+<script>
+  // Collection Sorting Handler
+  document.addEventListener('DOMContentLoaded', function() {
+    var sortSelect = document.getElementById('SortBy');
+    if (sortSelect) {
+      sortSelect.addEventListener('change', function(e) {
+        var url = new URL(window.location.href);
+        url.searchParams.delete('page');
+        url.searchParams.set('sort_by', e.target.value);
+        window.location.href = url.toString();
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Pagină Colecție",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "label": "Produse pe pagină",
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

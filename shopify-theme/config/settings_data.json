@@ -1,0 +1,38 @@
+{
+  "current": {
+    "color_background": "#F8F6F1",
+    "color_surface": "#FFFFFF",
+    "color_surface_alt": "#EDE5DA",
+    "color_text": "#1A1A1A",
+    "color_text_muted": "#77716B",
+    "color_accent": "#D4AF7A",
+    "color_border": "#E4DDD3",
+    "color_footer_bg": "#171615",
+    "color_footer_text": "#F8F6F1",
+    "logo_width": 130,
+    "cart_type": "drawer",
+    "show_cart_note": true,
+    "social_instagram_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": ""
+  },
+  "presets": {
+    "Default": {
+      "color_background": "#F8F6F1",
+      "color_surface": "#FFFFFF",
+      "color_surface_alt": "#EDE5DA",
+      "color_text": "#1A1A1A",
+      "color_text_muted": "#77716B",
+      "color_accent": "#D4AF7A",
+      "color_border": "#E4DDD3",
+      "color_footer_bg": "#171615",
+      "color_footer_text": "#F8F6F1",
+      "logo_width": 130,
+      "cart_type": "drawer",
+      "show_cart_note": true,
+      "social_instagram_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": ""
+    }
+  }
+}

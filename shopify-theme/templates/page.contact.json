@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main_page": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "contact_form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Trimite-ne un mesaj",
+        "text": "Completează formularul de mai jos, iar echipa noastră îți va răspunde în cel mai scurt timp.",
+        "bg_color": "transparent",
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main_page",
+    "contact_form"
+  ]
+}

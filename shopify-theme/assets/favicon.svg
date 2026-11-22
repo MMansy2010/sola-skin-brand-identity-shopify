@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="goldGradMono" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EED5AA" />
+      <stop offset="50%" stop-color="#D4AF7A" />
+      <stop offset="100%" stop-color="#AA8245" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" fill="#1A1A1A"/>
+  <path d="M 120 180 Q 256 50 392 180" fill="none" stroke="url(#goldGradMono)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="256" cy="115" r="5" fill="url(#goldGradMono)"/>
+  <text x="256" y="365" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="290" font-weight="400" fill="#F8F6F1">S</text>
+  <line x1="170" y1="410" x2="342" y2="410" stroke="url(#goldGradMono)" stroke-width="2" stroke-linecap="round"/>
+</svg>

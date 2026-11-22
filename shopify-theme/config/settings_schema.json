@@ -1,0 +1,203 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Sola Skin Luxury",
+    "theme_version": "1.0.1",
+    "theme_author": "Sola Skin Brand Studio",
+    "theme_documentation_url": "https://github.com",
+    "theme_support_url": "https://github.com"
+  },
+  {
+    "name": "Culori (Colors)",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paletă primară de brand"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Fundal principal (Ivory White)",
+        "default": "#F8F6F1"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Fundal carduri / Suprafețe (Soft White)",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_surface_alt",
+        "label": "Fundal secundar (Light Beige)",
+        "default": "#EDE5DA"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text principal (Obsidian Black)",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Text secundar (Warm Taupe)",
+        "default": "#77716B"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accente de lux (Champagne Gold)",
+        "default": "#D4AF7A"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Linii & Chenare subtile",
+        "default": "#E4DDD3"
+      },
+      {
+        "type": "header",
+        "content": "Culori Footer & Secțiuni Întunecate"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_bg",
+        "label": "Fundal Footer (Obsidian Black)",
+        "default": "#171615"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_text",
+        "label": "Text Footer (Ivory)",
+        "default": "#F8F6F1"
+      }
+    ]
+  },
+  {
+    "name": "Tipografie (Typography)",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Titluri (Headings)"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Font titluri (Serif de lux)",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "range",
+        "id": "heading_letter_spacing",
+        "min": -2,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "Spațiere litere titluri",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Font Text Corp (Body)"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Font corp (Sans-serif curat)",
+        "default": "montserrat_n4"
+      },
+      {
+        "type": "range",
+        "id": "body_font_size",
+        "min": 14,
+        "max": 18,
+        "step": 1,
+        "unit": "px",
+        "label": "Mărime font de bază",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Identitate Brand & Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "Logo principal (pentru fundal deschis)"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_dark",
+        "label": "Logo inversat (pentru fundal întunecat/footer)"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 80,
+        "max": 240,
+        "step": 5,
+        "unit": "px",
+        "label": "Lățime logo desktop",
+        "default": 130
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon (Monogramă Sola Skin)"
+      }
+    ]
+  },
+  {
+    "name": "Coș de cumpărături (Cart)",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Tip experiență coș",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Sertar lateral (Slide-out Drawer)"
+          },
+          {
+            "value": "page",
+            "label": "Pagină dedicată de coș"
+          }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Permite notă / instrucțiuni la comandă",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social Media & Rețele",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Introduceți link-urile către paginile oficiale de social media. Pictogramele vor fi afișate în footer doar pentru câmpurile completate."
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Link Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Link Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Link Pinterest"
+      }
+    ]
+  }
+]

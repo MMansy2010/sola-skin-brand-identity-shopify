@@ -1,0 +1,90 @@
+{% comment %}
+  Renders a luxury product card using real Shopify product data
+  Accepts:
+  - product: {Object} Product Liquid object
+{% endcomment %}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign price = current_variant.price
+  assign compare_at_price = current_variant.compare_at_price
+  assign is_available = current_variant.available
+-%}
+
+<div class="product-card" data-product-id="{{ product.id }}">
+  <div class="product-card-media">
+    {%- if product.featured_media != blank -%}
+      <a href="{{ product.url }}">
+        <img
+          src="{{ product.featured_media | image_url: width: 700 }}"
+          alt="{{ product.featured_media.alt | default: product.title | escape }}"
+          loading="lazy"
+          width="700"
+          height="840"
+        >
+      </a>
+    {%- else -%}
+      {%- comment -%} Fallback to Sola Skin luxury concept mockup if no image uploaded yet {%- endcomment -%}
+      <a href="{{ product.url | default: '#' }}">
+        {%- case product.handle -%}
+          {%- when 'serum-pentru-fata' or 'renewing-face-serum' -%}
+            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="Serum pentru față Sola Skin" loading="lazy" width="700" height="840">
+          {%- when 'crema-hidratanta' or 'hydrating-cream' -%}
+            <img src="{{ 'product-cream.jpg' | asset_url }}" alt="Cremă hidratantă Sola Skin" loading="lazy" width="700" height="840">
+          {%- when 'gel-de-curatare-delicat' or 'gentle-cleanser' -%}
+            <img src="{{ 'product-cleanser.jpg' | asset_url }}" alt="Gel de curățare delicat Sola Skin" loading="lazy" width="700" height="840">
+          {%- else -%}
+            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="700" height="840">
+        {%- endcase -%}
+      </a>
+    {%- endif -%}
+
+    {%- if compare_at_price > price -%}
+      <div class="product-card-badge">
+        <span class="badge badge-gold">{{ 'products.product.sale_price' | t }}</span>
+      </div>
+    {%- elsif product.tags contains 'nou' or product.tags contains 'new' -%}
+      <div class="product-card-badge">
+        <span class="badge">{{ 'products.product.new' | t }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="product-card-info">
+    <div class="product-card-subtitle">
+      {{ product.vendor | default: 'Sola Skin' }}{% if product.type != blank %} · {{ product.type }}{% endif %}
+    </div>
+    
+    <h3 class="product-card-title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+    
+    <div class="product-card-price">
+      {% render 'price', product: product, price: price, compare_at_price: compare_at_price %}
+    </div>
+
+    <div class="product-card-actions">
+      {%- if current_variant and is_available -%}
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-quick-add
+          data-variant-id="{{ current_variant.id }}"
+          data-title="{{ product.title | escape }}"
+          data-price="{{ price | divided_by: 100.0 }}"
+          {% if product.featured_media %}data-image="{{ product.featured_media | image_url: width: 200 }}"{% endif %}
+        >
+          {{ 'products.product.add_to_cart' | t }}
+        </button>
+      {%- else -%}
+        <button type="button" class="btn btn-secondary" disabled>
+          {{ 'products.product.sold_out' | t }}
+        </button>
+      {%- endif -%}
+      
+      <a href="{{ product.url }}" class="btn btn-secondary">
+        {{ 'products.product.view_details' | t }}
+      </a>
+    </div>
+  </div>
+</div>

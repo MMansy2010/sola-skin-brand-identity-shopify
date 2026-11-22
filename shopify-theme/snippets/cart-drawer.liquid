@@ -1,0 +1,73 @@
+<div class="cart-drawer-overlay" aria-hidden="true">
+  <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="{{ 'cart.title' | t }}">
+    <div class="cart-drawer-header">
+      <h3>{{ 'cart.title' | t }}</h3>
+      <button type="button" class="cart-drawer-close" aria-label="{{ 'general.close' | t }}">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+
+    <div class="cart-drawer-items">
+      {%- if cart.items.size == 0 -%}
+        <div class="cart-drawer-empty">
+          <p>{{ 'cart.empty' | t }}</p>
+          <a href="{{ routes.all_products_collection_url | default: '/collections/all' }}" class="btn btn-secondary" onclick="window.closeCartDrawer()">
+            {{ 'cart.continue_shopping' | t }}
+          </a>
+        </div>
+      {%- else -%}
+        {%- for item in cart.items -%}
+          <div class="cart-item" data-line="{{ forloop.index }}">
+            {%- if item.image -%}
+              <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" class="cart-item-img" width="80" height="96">
+            {%- else -%}
+              <div class="cart-item-img" style="background: #F8F6F1;"></div>
+            {%- endif -%}
+
+            <div class="cart-item-details">
+              <h4>{{ item.product.title }}</h4>
+              {%- unless item.product.has_only_default_variant -%}
+                <div style="font-size: 0.8rem; color: var(--color-muted);">{{ item.variant.title }}</div>
+              {%- endunless -%}
+              <div class="cart-item-price">{{ item.final_line_price | money }}</div>
+              <div class="cart-qty-stepper">
+                <button type="button" class="cart-qty-btn" onclick="SolaTheme.changeItemQuantity({{ forloop.index }}, {{ item.quantity | minus: 1 }})" aria-label="Scade cantitatea">–</button>
+                <span class="cart-qty-val">{{ item.quantity }}</span>
+                <button type="button" class="cart-qty-btn" onclick="SolaTheme.changeItemQuantity({{ forloop.index }}, {{ item.quantity | plus: 1 }})" aria-label="Crește cantitatea">+</button>
+              </div>
+            </div>
+            
+            <button type="button" class="cart-item-remove" onclick="SolaTheme.removeItem({{ forloop.index }})" aria-label="{{ 'cart.remove' | t }}">
+              {% render 'icon-close' %}
+            </button>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>{{ 'cart.subtotal' | t }}</span>
+        <span data-cart-subtotal>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="cart-tax-notice">{{ 'cart.taxes_included_shipping_at_checkout' | t }}</p>
+      
+      <form action="{{ routes.cart_url }}" method="post" id="cart-drawer-form">
+        <button
+          type="submit"
+          name="checkout"
+          class="btn btn-primary"
+          style="width: 100%; margin-bottom: 12px;"
+          data-cart-checkout-btn
+          {% if cart.item_count == 0 %}disabled="disabled"{% endif %}
+        >
+          {{ 'cart.checkout' | t }}
+        </button>
+      </form>
+      
+      <a href="{{ routes.cart_url }}" class="link-editorial" style="display: block; text-align: center;">
+        {{ 'cart.view_cart' | t }}
+      </a>
+    </div>
+  </div>
+</div>

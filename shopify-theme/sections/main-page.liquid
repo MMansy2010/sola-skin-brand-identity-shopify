@@ -1,0 +1,32 @@
+<section style="padding: 70px 0 100px;">
+  <div class="page-container page-container-narrow">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h1>{{ page.title }}</h1>
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+    </div>
+
+    <div style="font-size: 1.05rem; line-height: 1.85; color: #55504A;">
+      {{ page.content }}
+    </div>
+
+    {%- if page.handle == 'contact' and template.suffix != 'contact' -%}
+      <div class="contact-form-container" style="margin-top: 50px;">
+        {% render 'contact-form',
+          heading: 'Trimite-ne un mesaj',
+          text: 'Completează formularul de mai jos, iar echipa noastră îți va răspunde în cel mai scurt timp.'
+        %}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pagină Standard",
+  "settings": []
+}
+{% endschema %}

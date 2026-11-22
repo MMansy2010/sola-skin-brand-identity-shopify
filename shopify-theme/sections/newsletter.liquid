@@ -1,0 +1,88 @@
+<section class="section-newsletter" style="background-color: {{ section.settings.bg_color }};">
+  <div class="page-container page-container-narrow">
+    
+    <div class="newsletter-box">
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+
+      <h2>{{ section.settings.title | default: 'Rămâi aproape de Sola Skin.' }}</h2>
+      <p>{{ section.settings.text | default: 'Abonează-te pentru noutăți, inspirație și momente dedicate îngrijirii tale.' }}</p>
+
+      {%- form 'customer', class: 'newsletter-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <input
+          id="NewsletterForm--{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          class="newsletter-input"
+          value="{{ form.email }}"
+          aria-required="true"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          placeholder="{{ 'newsletter.email_placeholder' | t }}"
+          required
+        >
+
+        <button type="submit" class="btn btn-primary" name="commit">
+          {{ section.settings.button_label | default: 'Abonează-mă' }}
+        </button>
+
+        {%- if form.posted_successfully? -%}
+          <div class="newsletter-msg-success" role="status">
+            {{ 'newsletter.success' | t }}
+          </div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div class="newsletter-msg-error" role="alert">
+            {{ form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email }}
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titlu",
+      "default": "Rămâi aproape de Sola Skin."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text descriptiv",
+      "default": "Abonează-te pentru noutăți, inspirație și momente dedicate îngrijirii tale."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Text buton",
+      "default": "Abonează-mă"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#F8F6F1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

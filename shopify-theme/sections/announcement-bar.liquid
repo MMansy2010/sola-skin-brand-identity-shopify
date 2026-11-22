@@ -1,0 +1,53 @@
+{%- if section.settings.show_announcement -%}
+  <div class="site-announcement" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }};">
+    <div class="page-container">
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}">{{ section.settings.text | escape }}</a>
+      {%- else -%}
+        <span>{{ section.settings.text | escape }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bara de anunțuri",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Afișează bara de anunțuri",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text anunț",
+      "default": "Descoperă noua colecție Sola Skin"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link opțional"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#EDE5DA"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Culoare text",
+      "default": "#1A1A1A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bara de anunțuri"
+    }
+  ]
+}
+{% endschema %}

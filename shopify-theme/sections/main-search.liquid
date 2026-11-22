@@ -1,0 +1,50 @@
+<section style="padding: 70px 0 100px;">
+  <div class="page-container">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 50px;">
+      <h1>{{ 'search.title' | t }}</h1>
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; gap: 10px; margin-top: 24px;">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'search.placeholder' | t }}"
+          class="newsletter-input"
+          aria-label="{{ 'search.title' | t }}"
+        >
+        <button type="submit" class="btn btn-primary">
+          {{ 'general.search' | t }}
+        </button>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      {%- if search.results_count == 0 -%}
+        <div style="text-align: center; padding: 40px 0;">
+          <p>{{ 'search.no_results' | t: terms: search.terms }}</p>
+        </div>
+      {%- else -%}
+        <div class="product-grid">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', product: item %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rezultate Căutare",
+  "settings": []
+}
+{% endschema %}

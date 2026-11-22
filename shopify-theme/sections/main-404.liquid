@@ -1,0 +1,26 @@
+<section style="padding: 120px 0; text-align: center;">
+  <div class="page-container page-container-narrow">
+    <div class="gold-arc-divider">
+      <span></span>
+      <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="3"/></svg>
+      <span></span>
+    </div>
+    
+    <h1 style="font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 20px;">404</h1>
+    <h2 style="margin-bottom: 16px;">{{ '404.title' | t }}</h2>
+    <p style="margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto;">
+      {{ '404.subtext' | t }}
+    </p>
+    
+    <a href="{{ routes.root_url }}" class="btn btn-primary">
+      {{ '404.button' | t }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pagină 404",
+  "settings": []
+}
+{% endschema %}
