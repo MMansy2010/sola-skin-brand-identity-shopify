@@ -21,8 +21,8 @@ sola-skin-brand-identity-shopify/
 ├── README.md                          # Project documentation & installation guide
 ├── .gitignore                         # Standard git ignore rules (zero secrets, zero logs)
 │
-├── shopify-theme/                     # Production Shopify 2.0 Theme Source
-│   ├── assets/                        # CSS, JS, SVG brandmarks, WebP/JPG editorial imagery
+├── shopify-theme/                     # Shopify Online Store 2.0 Theme Source
+│   ├── assets/                        # CSS, JS, SVG brandmarks, and editorial imagery
 │   ├── config/                        # Theme settings schema & default settings data
 │   ├── layout/                        # Base HTML shell (theme.liquid)
 │   ├── locales/                       # Translations (Romanian ro.json, English en.default.json)
@@ -39,8 +39,8 @@ sola-skin-brand-identity-shopify/
 │   ├── DOCUMENTATION.md               # Theme technical architecture & Liquid documentation
 │   └── FIGMA_DESIGN_SYSTEM.md         # Design tokens, typography hierarchy, and UI guidelines
 │
-└── preview/                           # Visual Previews & High-Resolution Mockups
-    └── screenshots/                   # Storefront page captures and presentation boards
+└── preview/                           # Actual Storefront Previews & Presentation Materials
+    └── screenshots/                   # Actual storefront screenshots and presentation boards
 ```
 
 ---
@@ -48,6 +48,7 @@ sola-skin-brand-identity-shopify/
 ## 3. Brand Identity System
 
 ### Color Palette
+
 - **Obsidian Black (`#1A1A1A`):** Primary wordmark, high-contrast headings, active states.
 - **Ivory Cream (`#F8F6F1`):** Canvas background, section backgrounds, calm whitespace.
 - **Champagne Gold (`#D4AF7A`):** Geometric emblem, accent dividers, hover states.
@@ -55,10 +56,12 @@ sola-skin-brand-identity-shopify/
 - **Subtle Sand (`#EDE5DA`):** Borders, input framing, card dividers.
 
 ### Typography Hierarchy
+
 - **Primary Serif:** *Playfair Display* & *Cormorant Garamond* (Headings, editorial quotes, brandmark)
 - **Primary Sans:** *Montserrat* (Body copy, product specs, UI navigation, buttons)
 
 ### Deliverables in `brand-identity/`
+
 - `brand-identity-board.pdf`: Complete 6-slide presentation covering Brand Essence, Brandmarks, Visual Standards, Product Concepts, Visual Mood, and Digital Execution.
 - `logos/`: Scalable SVG vectors for light and dark backgrounds, minimal monogram, and app icons.
 
@@ -68,15 +71,19 @@ sola-skin-brand-identity-shopify/
 
 The theme in `shopify-theme/` is built specifically for **Shopify Online Store 2.0**:
 
-- **Native Ajax Cart API Integration:**
+- **Native Ajax Cart API Integration:**  
   Mutations use official endpoints (`/cart.js`, `/cart/add.js`, `/cart/change.js`). Includes race-condition locking to prevent quantity collisions and supports Shopify Dynamic Accelerated Checkout (Shop Pay, Apple Pay, Google Pay).
-- **Dynamic Product Options & Variant Matching:**
+
+- **Dynamic Product Options & Variant Matching:**  
   Reads option selections, synchronizes live prices, updates the active URL query parameter (`?variant=id`), switches gallery images, and disables out-of-stock variants safely without layout shifts.
-- **JSON Templates & Section Modularity:**
+
+- **JSON Templates & Section Modularity:**  
   All storefront templates are JSON-based, giving merchants full drag-and-drop customization across pages.
-- **Accessibility (a11y):**
+
+- **Accessibility (a11y):**  
   Includes a skip-to-content link, global `:focus-visible` golden focus indicators, ARIA modal dialog markup on drawers, and descriptive image `alt` attributes.
-- **Zero Errors on Shopify Theme Check:**
+
+- **Zero Errors on Shopify Theme Check:**  
   Clean, linted Liquid code with zero syntax errors.
 
 ---
@@ -85,23 +92,25 @@ The theme in `shopify-theme/` is built specifically for **Shopify Online Store 2
 
 > **IMPORTANT DISCLAIMER FOR STORE MERCHANTS:**  
 > The products, prices, descriptions, store policies, business hours, and contact details included in this repository are **conceptual demo placeholders** created for design demonstration and contest submission purposes:
->
-> 1. **Products & Inventory:** Product names (*Serum pentru față*, *Cremă hidratantă*, *Gel de curățare delicat*), sample prices, and image mockups must be replaced with the merchant's actual catalog, real SKUs, barcodes, and live inventory.
-> 2. **Contact Details:** The contact email (`contact@solaskin.ro`), address (`București, România`), and hours (`Luni – Vineri: 09:00 – 17:00`) are sample placeholders and must be updated to the merchant's real business contact channels in Shopify Admin.
-> 3. **Legal Policies:** Footer links point to Shopify's standard policy routes (`/policies/shipping-policy`, `/policies/refund-policy`, `/policies/terms-of-service`, `/policies/privacy-policy`). Actual legal copy must be configured under `Shopify Admin > Settings > Policies`.
-> 4. **No Fictional Medical/Ingredient Claims:** The theme intentionally avoids making unverified chemical, SPF, or clinical claims; product informational accordions remain hidden until real data is supplied by the store owner.
+
+1. **Products & Inventory:** Product names (*Serum pentru față*, *Cremă hidratantă*, *Gel de curățare delicat*), sample prices, and image mockups must be replaced with the merchant's actual catalog, real SKUs, barcodes, and live inventory.
+2. **Contact Details:** The contact email (`contact@solaskin.ro`), address (`București, România`), and hours (`Luni – Vineri: 09:00 – 17:00`) are sample placeholders and must be updated to the merchant's real business contact channels in Shopify Admin.
+3. **Legal Policies:** Footer links point to Shopify's standard policy routes (`/policies/shipping-policy`, `/policies/refund-policy`, `/policies/terms-of-service`, `/policies/privacy-policy`). Actual legal copy must be configured under `Shopify Admin > Settings > Policies`.
+4. **No Fictional Medical/Ingredient Claims:** The theme intentionally avoids making unverified chemical, SPF, or clinical claims; product informational accordions remain hidden until real data is supplied by the store owner.
 
 ---
 
 ## 6. Installation & Setup Guide
 
 ### Method 1: Upload via Shopify Admin
+
 1. Archive the contents of `shopify-theme/` directly into a ZIP file (or use `sola-skin-shopify-theme.zip`). Ensure theme folders (`assets/`, `templates/`, etc.) reside at the root of the ZIP.
 2. In your Shopify Admin, navigate to **Online Store > Themes**.
 3. Under the **Theme library** section, click **Add theme > Upload zip file**.
 4. Upload the theme ZIP. Once processed, click **Customize** to open the Shopify Theme Editor or **Publish** to make it active.
 
 ### Method 2: Development via Shopify CLI
+
 ```bash
 # Navigate to the theme directory
 cd sola-skin-brand-identity-shopify/shopify-theme
