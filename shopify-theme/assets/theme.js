@@ -1,5 +1,5 @@
 /**
- * SOLA SKIN — SHOPIFY 2.0 PRODUCTION CLIENT THEME SCRIPT
+ * Sola Skin — Shopify 2.0 Production Client Theme Script
  * 100% Native Shopify Ajax Cart API Integration (/cart.js, /cart/add.js, /cart/change.js)
  */
 

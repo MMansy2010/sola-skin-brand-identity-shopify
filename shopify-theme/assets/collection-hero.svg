@@ -91,5 +91,5 @@
   <polygon points="1200,0 1600,0 1500,1000 900,1000" fill="#FFFFFF" opacity="0.08"/>
 
   <!-- Watermark / subtle branding -->
-  <text x="800" y="930" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" letter-spacing="6" text-anchor="middle" fill="#77716B">SOLA SKIN · RITUALUL TĂU ZILNIC</text>
+  <text x="800" y="930" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" letter-spacing="6" text-anchor="middle" fill="#77716B">Sola Skin · Ritualul tău zilnic</text>
 </svg>
