@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "main_routine": {
+      "type": "main-routine",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "tag": "Pasul 01 · Dimineața & Seara",
+            "title": "Curățare delicată & echilibru",
+            "product_name": "Gel de curățare delicat (Gentle Cleanser)",
+            "product_url": "/products/gel-de-curatare-delicat",
+            "image_asset": "product-cleanser.jpg",
+            "badge": "Pasul 1",
+            "description": "Primul pas esențial al oricărei rutine sănătoase de îngrijire. O formulă fină și catifelată, concepută pentru a îndepărta cu blândețe impuritățile, excesul de sebum și urmele poluării urbane, fără a altera bariera hidrolipidică naturală a pielii. Tenul rămâne perfect curat, calmat și pregătit pentru absorbția optimă a ingredientelor active.",
+            "how_to_use": "Umeziți fața cu apă călduță. Aplicați o cantitate mică de gel și masați circular timp de 60 de secunde, apoi clătiți abundent cu apă călduță.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "tag": "Pasul 02 · Concentrat de revitalizare",
+            "title": "Revitalizare profundă & luminozitate",
+            "product_name": "Serum pentru față (Renewing Face Serum)",
+            "product_url": "/products/serum-pentru-fata",
+            "image_asset": "product-serum.jpg",
+            "badge": "Pasul 2",
+            "description": "Inima ritualului de îngrijire Sola Skin. Acest serum lejer și intens hidratant pătrunde adânc în straturile epidermei, oferind un aport concentrat de nutrienți și antioxidanți. Susține regenerarea celulară, îmbunătățește textura tenului și îi conferă acea strălucire naturală și odihnită, caracteristică pielii sănătoase.",
+            "how_to_use": "Dozați 3-4 picături în palme și presați ușor pe ten, gât și decolteu până la absorbția completă.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "tag": "Pasul 03 · Hrănire & confort de durată",
+            "title": "Hidratare profundă & protecție",
+            "product_name": "Cremă hidratantă (Hydrating Cream)",
+            "product_url": "/products/crema-hidratanta",
+            "image_asset": "product-cream.jpg",
+            "badge": "Pasul 3",
+            "description": "Pasul care sigilează hidratarea și oferă protecție pe parcursul întregii zile. O textură onctuoasă, dar lejeră, ce îmbracă tenul într-un voal de catifelare. Ajută la refacerea barierei protectoare, previne pierderea transepidermică de apă și lasă pielea suplă, elastică și profund reconfortată.",
+            "how_to_use": "Aplicați o cantitate moderată pe față și masați delicat dinspre centru spre exterior până la absorbție.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "step_number": "04",
+            "tag": "Pasul 04 · Ultimul pas de dimineață",
+            "title": "Protecție solară zilnică SPF 50+",
+            "product_name": "Protecție solară zilnică SPF 50+ (Daily Sunscreen SPF 50+)",
+            "product_url": "/products/protectie-solara-spf-50",
+            "image_asset": "product-sunscreen.jpg",
+            "badge": "Pasul 4",
+            "description": "Pasul nenegociabil al fiecărei dimineți pentru menținerea tinereții și sănătății pielii. Cu o protecție avansată cu spectru larg SPF 50+ împotriva radiațiilor UVA și UVB, această loțiune ultra-lejeră apără tenul de foto-îmbătrânire, pete pigmentare și degradarea colagenului. Textura sa modernă, fără urme albe și fără senzație grasă, se contopește invizibil cu pielea și constituie o bază impecabilă de machiaj.",
+            "how_to_use": "Aplicați generos și uniform ca ultim pas al ritualului de dimineață, cu 15 minute înainte de expunerea la soare. Reaplicați după caz.",
+            "button_label": "Descoperă produsul"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "settings": {
+        "eyebrow": "Ghidul Tău Zilnic",
+        "title": "Rutina Zilnică",
+        "subtitle": "Patru pași esențiali concepuți pentru a fi urmați dimineața și seara, dezvăluind luminozitatea, echilibrul și sănătatea naturală a tenului tău.",
+        "bg_color": "#FAF8F5",
+        "show_collection_cta": true,
+        "cta_title": "Ești gata să începi ritualul Sola Skin?",
+        "cta_subtitle": "Descoperă întreaga colecție de formule minimaliste create pentru când alegi să te pui pe primul loc.",
+        "cta_button_text": "Descoperă întreaga colecție",
+        "cta_button_link": "/collections/all"
+      }
+    }
+  },
+  "order": [
+    "main_routine"
+  ]
+}

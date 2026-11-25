@@ -7,24 +7,26 @@ Acest proiect reprezintă pachetul complet de identitate vizuală de lux și tem
 ## 1. Structura Pachetului de Livrabile
 
 ```
-sola_skin_identity_v1/
+sola-skin-brand-identity-shopify/
 ├── sola-skin-shopify-theme.zip       <-- Arhiva gata pentru import direct în Shopify Admin
 ├── FIGMA_DESIGN_SYSTEM.md            <-- Specificație completă Figma & sistem de design UI/UX
 ├── DOCUMENTATION.md                  <-- Ghid complet de instalare și configurare
 │
-├── shopify_theme/                    <-- Codul sursă complet al temei Shopify 2.0
-│   ├── assets/                       <-- Stiluri CSS, scripturi JS, logo-uri SVG și mockups
+├── shopify-theme/                    <-- Codul sursă complet al temei Shopify 2.0
+│   ├── assets/                       <-- Stiluri CSS, scripturi JS, logo-uri SVG și fotografii de produs
 │   │   ├── base.css                  <-- Sistemul de stiluri de lux
 │   │   ├── theme.js                  <-- Funcționalități AJAX coș, drawer, navigație, galerii
 │   │   ├── sola-skin-logo-light.svg  <-- Logo principal fundal deschis (transparent)
 │   │   ├── sola-skin-logo-dark.svg   <-- Logo inversat pentru footer/dark mode (transparent)
 │   │   ├── sola-skin-monogram.svg    <-- Monograma "S" de lux
 │   │   ├── favicon.svg               <-- Favicon optimizat
-│   │   ├── product-serum.svg         <-- Mockup vectorial: Serum pentru față (30 ml)
-│   │   ├── product-cream.svg         <-- Mockup vectorial: Cremă hidratantă (50 ml)
-│   │   ├── product-cleanser.svg      <-- Mockup vectorial: Gel de curățare delicat (100 ml)
-│   │   ├── collection-hero.svg       <-- Mockup compoziție colecție (trio pe piedestal)
-│   │   └── editorial-lifestyle.svg   <-- Grafică editorială lifestyle
+│   │   ├── product-serum.jpg         <-- Fotografie de produs: Serum pentru față (30 ml)
+│   │   ├── product-cream.jpg         <-- Fotografie de produs: Cremă hidratantă (50 ml)
+│   │   ├── product-cleanser.jpg      <-- Fotografie de produs: Gel de curățare delicat (100 ml)
+│   │   ├── product-sunscreen.jpg     <-- Fotografie de produs: Protecție solară SPF 50+ (50 ml)
+│   │   ├── hero-skincare.jpg         <-- Hero cinematic colecție completă de lux
+│   │   ├── collection-editorial.jpg  <-- Compoziție colecție editorială
+│   │   └── lifestyle-editorial.jpg   <-- Grafică editorială lifestyle
 │   ├── config/
 │   │   ├── settings_schema.json      <-- Schema de setări globale Theme Editor
 │   │   └── settings_data.json        <-- Preset implicit culori, tipografie și opțiuni
@@ -33,13 +35,14 @@ sola_skin_identity_v1/
 │   ├── locales/
 │   │   ├── ro.json                   <-- Fișier complet de localizare în limba Română
 │   │   └── en.default.json           <-- Fișier de rezervă în limba Engleză
-│   ├── sections/                     <-- Secțiuni modulare Online Store 2.0
+│   ├── sections/                     <-- 19 Secțiuni modulare Online Store 2.0
 │   │   ├── announcement-bar.liquid   <-- Bară subțire de anunțuri
 │   │   ├── header.liquid             <-- Antet elegant sticky cu meniu mobil & desktop
 │   │   ├── hero.liquid               <-- Erou cinematic editorial cu arc auriu
 │   │   ├── brand-intro.liquid        <-- Introducere brand (layout pe 2 coloane)
 │   │   ├── featured-products.liquid  <-- Grilă produse recomandate cu adăugare rapidă
-│   │   ├── routine-guide.liquid      <-- Ghid în 3 pași pentru rutina zilnică
+│   │   ├── routine-guide.liquid      <-- Ghid pentru rutina zilnică
+│   │   ├── main-routine.liquid       <-- Pagină dedicată Rutina Zilnică în 4 pași (OS 2.0)
 │   │   ├── editorial-image.liquid    <-- Citat editorial pe card din sticlă mată
 │   │   ├── brand-values.liquid       <-- 4 blocuri de valori cu iconițe liniare
 │   │   ├── newsletter.liquid         <-- Formular nativ abonare newsletter
@@ -49,36 +52,34 @@ sola_skin_identity_v1/
 │   │   ├── main-collection.liquid    <-- Pagină colecție (PLP) cu sortare și număr produse
 │   │   ├── main-cart.liquid          <-- Pagină dedicată de coș de cumpărături
 │   │   ├── main-page.liquid          <-- Pagină standard de conținut
+│   │   ├── contact-form.liquid       <-- Formular de contact
 │   │   ├── main-search.liquid        <-- Căutare dedicată în magazin
 │   │   └── main-404.liquid           <-- Pagină 404 în limba Română
-│   ├── snippets/                     <-- Componente reutilizabile Liquid
+│   ├── snippets/                     <-- 10 Componente reutilizabile Liquid
 │   │   ├── product-card.liquid       <-- Card produs de lux cu preț în RON și quick-add
 │   │   ├── price.liquid              <-- Formatare preț în moneda magazinului (RON / lei)
 │   │   ├── cart-drawer.liquid        <-- Sertar lateral glisant (Slide-out AJAX Cart)
+│   │   ├── routine-content.liquid    <-- Conținut complet de rezervă pentru Rutina Zilnică
+│   │   ├── contact-form.liquid       <-- Formular de contact inclus în snippet
 │   │   ├── icon-search.liquid        <-- Iconiță minimalistă căutare
 │   │   ├── icon-cart.liquid          <-- Iconiță sacoșă cumpărături cu contor
 │   │   ├── icon-menu.liquid          <-- Iconiță meniu mobil hamburger
 │   │   ├── icon-close.liquid         <-- Iconiță închidere
 │   │   └── icon-chevron.liquid       <-- Iconiță săgeată pentru acordeoane
-│   └── templates/                    <-- Șabloane JSON Online Store 2.0
+│   └── templates/                    <-- 10 Șabloane JSON Online Store 2.0
 │       ├── index.json                <-- Șablon Pagina Principală
 │       ├── product.json              <-- Șablon Pagina Produs
 │       ├── collection.json           <-- Șablon Pagina Colecție
 │       ├── cart.json                 <-- Șablon Pagina Coș
 │       ├── page.json                 <-- Șablon Pagină Despre Noi / Conținut
+│       ├── page.routine.json         <-- Șablon Pagină Rutina Zilnică (4 pași)
+│       ├── page.contact.json         <-- Șablon Pagină Contact
 │       ├── search.json               <-- Șablon Căutare
 │       ├── 404.json                  <-- Șablon 404
 │       └── list-collections.json     <-- Șablon Listă Colecții
 │
-└── preview/                          <-- Previzualizare interactivă direct în browser
-    ├── index.html                    <-- Homepage interactiv
-    ├── product.html                  <-- PDP interactiv (Serum, Cremă, Cleanser)
-    ├── collection.html               <-- Colecție completă interactivă
-    ├── cart.html                     <-- Pagină de coș interactivă
-    ├── about.html                    <-- Despre noi
-    ├── routine.html                  <-- Ghid rutină
-    ├── contact.html                  <-- Contact
-    └── assets/                       <-- Copie a resurselor vizuale pentru testare offline
+└── preview/                          <-- Previzualizare & capturi de ecran ale magazinului
+    └── screenshots/                  <-- Capturi de înaltă rezoluție (desktop & mobil)
 ```
 
 ---
@@ -123,30 +124,37 @@ Tema este redactată nativ în limba română în `locales/ro.json`. Pentru a se
 
 ---
 
-## 5. Adăugarea Celor 3 Produse Conceptuale în Shopify
+## 5. Adăugarea Produselor Conceptuale în Shopify
 
 În Shopify Admin -> **Produse (Products) -> Adăugați un produs (Add product)**:
 
 ### Produsul 1:
-- **Titlu:** `Serum pentru față`
-- **Descriere:** `Un pas delicat în rutina ta zilnică de îngrijire. Creat pentru a oferi o senzație de confort și echilibru, îmbogățind ritualul de dimineață sau seară cu o textură fină și catifelată.`
-- **Preț:** `240,00 RON`
-- **Volum:** `30 ml`
-- **Imagine:** Încărcați `shopify_theme/assets/product-serum.svg` (sau fotografia de ambalaj reală atunci când este disponibilă).
-
-### Produsul 2:
-- **Titlu:** `Cremă hidratantă`
-- **Descriere:** `Un moment de răsfăț pentru pielea ta, zi de zi. O cremă mătăsoasă ce oferă o hidratare profundă și o barieră protectoare confortabilă împotriva factorilor de mediu.`
-- **Preț:** `190,00 RON`
-- **Volum:** `50 ml`
-- **Imagine:** Încărcați `shopify_theme/assets/product-cream.svg`.
-
-### Produsul 3:
-- **Titlu:** `Gel de curățare delicat`
+- **Titlu:** `Gel de curățare delicat` (Pasul 1 în rutină)
 - **Descriere:** `Un început delicat pentru rutina ta de îngrijire. Curăță impuritățile menținând bariera naturală de hidratare și conferind o senzație plăcută de prospețime.`
 - **Preț:** `140,00 RON`
 - **Volum:** `100 ml`
-- **Imagine:** Încărcați `shopify_theme/assets/product-cleanser.svg`.
+- **Imagine:** Încărcați `shopify-theme/assets/product-cleanser.jpg`.
+
+### Produsul 2:
+- **Titlu:** `Serum pentru față` (Pasul 2 în rutină)
+- **Descriere:** `Un pas delicat în rutina ta zilnică de îngrijire. Creat pentru a oferi o senzație de confort și echilibru, îmbogățind ritualul de dimineață sau seară cu o textură fină și catifelată.`
+- **Preț:** `240,00 RON`
+- **Volum:** `30 ml`
+- **Imagine:** Încărcați `shopify-theme/assets/product-serum.jpg`.
+
+### Produsul 3:
+- **Titlu:** `Cremă hidratantă` (Pasul 3 în rutină)
+- **Descriere:** `Un moment de răsfăț pentru pielea ta, zi de zi. O cremă mătăsoasă ce oferă o hidratare profundă și o barieră protectoare confortabilă împotriva factorilor de mediu.`
+- **Preț:** `190,00 RON`
+- **Volum:** `50 ml`
+- **Imagine:** Încărcați `shopify-theme/assets/product-cream.jpg`.
+
+### Produsul 4:
+- **Titlu:** `Cremă protecție solară SPF 50+` (Pasul 4 în rutină)
+- **Descriere:** `Protecție solară zilnică avansată cu spectru larg SPF 50+. O formulă lejeră și catifelată ce oferă un scut invizibil împotriva radiațiilor UVA/UVB, completând perfect ritualul de dimineață.`
+- **Preț:** `175,00 RON`
+- **Volum:** `50 ml`
+- **Imagine:** Încărcați `shopify-theme/assets/product-sunscreen.jpg`.
 
 ---
 

@@ -28,13 +28,17 @@
       <a href="{{ product.url | default: '#' }}">
         {%- case product.handle -%}
           {%- when 'serum-pentru-fata' or 'renewing-face-serum' -%}
-            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="Serum pentru față Sola Skin" loading="lazy" width="700" height="840">
+            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="Serum pentru față Sola Skin" loading="lazy" width="1122" height="1402">
           {%- when 'crema-hidratanta' or 'hydrating-cream' -%}
-            <img src="{{ 'product-cream.jpg' | asset_url }}" alt="Cremă hidratantă Sola Skin" loading="lazy" width="700" height="840">
+            <img src="{{ 'product-cream.jpg' | asset_url }}" alt="Cremă hidratantă Sola Skin" loading="lazy" width="1122" height="1402">
           {%- when 'gel-de-curatare-delicat' or 'gentle-cleanser' -%}
-            <img src="{{ 'product-cleanser.jpg' | asset_url }}" alt="Gel de curățare delicat Sola Skin" loading="lazy" width="700" height="840">
+            <img src="{{ 'product-cleanser.jpg' | asset_url }}" alt="Gel de curățare delicat Sola Skin" loading="lazy" width="1122" height="1402">
+          {%- when 'protectie-solara-spf-50' or 'sunscreen-spf-50' or 'luxury-spf-50-sunscreen' -%}
+            <img src="{{ 'product-sunscreen.jpg' | asset_url }}" alt="Protecție solară SPF 50+ Sola Skin" loading="lazy" width="1122" height="1402">
+          {%- when 'geanta-beauty-luxury' or 'beauty-bag' -%}
+            <img src="{{ 'product-beauty-bag.jpg' | asset_url }}" alt="Geantă de frumusețe Sola Skin" loading="lazy" width="1122" height="1402">
           {%- else -%}
-            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="700" height="840">
+            <img src="{{ 'product-serum.jpg' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="1122" height="1402">
         {%- endcase -%}
       </a>
     {%- endif -%}

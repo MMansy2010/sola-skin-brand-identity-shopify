@@ -1,0 +1,184 @@
+{% comment %}
+  Renders the 4-step Daily Routine (Rutina Zilnică) content.
+  Used as a fallback on standard pages or inside page.json templates.
+{% endcomment %}
+
+<div class="routine-timeline" style="margin-top: 50px;">
+  <!-- Step 1: Curățare -->
+  <article class="routine-step-row">
+    <div class="routine-step-media">
+      <img
+        src="{{ 'product-cleanser.jpg' | asset_url }}"
+        alt="Gel de curățare delicat — Sola Skin"
+        loading="lazy"
+        width="1122"
+        height="1402"
+      >
+      <div class="routine-step-badge">
+        <span class="badge badge-gold">Pasul 1</span>
+      </div>
+    </div>
+    <div class="routine-step-body">
+      <div class="routine-step-header">
+        <span class="routine-step-index">01</span>
+        <span class="routine-step-tag">Pasul 01 · Dimineața &amp; Seara</span>
+      </div>
+      <h2 class="routine-step-heading">Curățare delicată &amp; echilibru</h2>
+      <div class="routine-step-product-callout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <span>Gel de curățare delicat (Gentle Cleanser) · 100 ml</span>
+      </div>
+      <p class="routine-step-text">
+        Primul pas esențial al oricărei rutine sănătoase de îngrijire. O formulă fină și catifelată, concepută pentru a îndepărta cu blândețe impuritățile, excesul de sebum și urmele poluării urbane, fără a altera bariera hidrolipidică naturală a pielii. Tenul rămâne curat, calmat și optim pregătit pentru absorbția ingredientelor active din etapele următoare.
+      </p>
+      <div class="routine-step-tip">
+        <strong>Mod de aplicare:</strong> Umeziți fața cu apă călduță. Aplicați o cantitate mică de gel și masați circular pe piele timp de 60 de secunde, apoi clătiți din abundență și tamponați ușor cu un prosop moale.
+      </div>
+      <div class="routine-step-action">
+        <a href="/products/gel-de-curatare-delicat" class="btn btn-secondary">Descoperă produsul</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Step 2: Ser -->
+  <article class="routine-step-row">
+    <div class="routine-step-media">
+      <img
+        src="{{ 'product-serum.jpg' | asset_url }}"
+        alt="Serum pentru față — Sola Skin"
+        loading="lazy"
+        width="1122"
+        height="1402"
+      >
+      <div class="routine-step-badge">
+        <span class="badge badge-gold">Pasul 2</span>
+      </div>
+    </div>
+    <div class="routine-step-body">
+      <div class="routine-step-header">
+        <span class="routine-step-index">02</span>
+        <span class="routine-step-tag">Pasul 02 · Concentrat de revitalizare</span>
+      </div>
+      <h2 class="routine-step-heading">Revitalizare profundă &amp; luminozitate</h2>
+      <div class="routine-step-product-callout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <span>Serum pentru față (Renewing Face Serum) · 30 ml</span>
+      </div>
+      <p class="routine-step-text">
+        Inima ritualului de îngrijire Sola Skin. Acest serum lejer și intens hidratant pătrunde adânc în straturile epidermei, livrând un aport concentrat de nutrienți și antioxidanți. Susține regenerarea celulară, îmbunătățește elasticitatea tenului și îi conferă acea strălucire naturală și odihnită, caracteristică pielii sănătoase.
+      </p>
+      <div class="routine-step-tip">
+        <strong>Mod de aplicare:</strong> Dozați 3-4 picături în palme și presați ușor pe față, gât și decolteu. Lăsați textura mătăsoasă să se absoarbă complet timp de 1-2 minute înainte de pasul următor.
+      </div>
+      <div class="routine-step-action">
+        <a href="/products/serum-pentru-fata" class="btn btn-secondary">Descoperă produsul</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Step 3: Hidratare -->
+  <article class="routine-step-row">
+    <div class="routine-step-media">
+      <img
+        src="{{ 'product-cream.jpg' | asset_url }}"
+        alt="Cremă hidratantă — Sola Skin"
+        loading="lazy"
+        width="1122"
+        height="1402"
+      >
+      <div class="routine-step-badge">
+        <span class="badge badge-gold">Pasul 3</span>
+      </div>
+    </div>
+    <div class="routine-step-body">
+      <div class="routine-step-header">
+        <span class="routine-step-index">03</span>
+        <span class="routine-step-tag">Pasul 03 · Hrănire &amp; confort de durată</span>
+      </div>
+      <h2 class="routine-step-heading">Hidratare profundă &amp; protecție</h2>
+      <div class="routine-step-product-callout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <span>Cremă hidratantă (Hydrating Cream) · 50 ml</span>
+      </div>
+      <p class="routine-step-text">
+        Pasul care sigilează hidratarea și oferă protecție pe parcursul întregii zile. O textură onctuoasă, dar lejeră, ce îmbracă tenul într-un voal de catifelare. Ajută la refacerea barierei protectoare, previne pierderea transepidermică de apă și lasă pielea suplă, elastică și profund reconfortată.
+      </p>
+      <div class="routine-step-tip">
+        <strong>Mod de aplicare:</strong> Aplicați o cantitate de mărimea unei perle pe frunte, obraji și bărbie. Masați delicat cu mișcări ascendente, dinspre centrul feței spre exterior, pentru a stimula microcirculația.
+      </div>
+      <div class="routine-step-action">
+        <a href="/products/crema-hidratanta" class="btn btn-secondary">Descoperă produsul</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Step 4: Protecție Solară -->
+  <article class="routine-step-row">
+    <div class="routine-step-media">
+      <img
+        src="{{ 'product-sunscreen.jpg' | asset_url }}"
+        alt="Protecție solară zilnică SPF 50+ — Sola Skin"
+        loading="lazy"
+        width="1122"
+        height="1402"
+      >
+      <div class="routine-step-badge">
+        <span class="badge badge-gold">Pasul 4</span>
+      </div>
+    </div>
+    <div class="routine-step-body">
+      <div class="routine-step-header">
+        <span class="routine-step-index">04</span>
+        <span class="routine-step-tag">Pasul 04 · Ultimul pas de dimineață</span>
+      </div>
+      <h2 class="routine-step-heading">Protecție solară zilnică SPF 50+</h2>
+      <div class="routine-step-product-callout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <span>Protecție solară zilnică SPF 50+ (Daily Sunscreen) · 50 ml</span>
+      </div>
+      <p class="routine-step-text">
+        Pasul nenegociabil al fiecărei dimineți pentru menținerea tinereții și sănătății pielii. Cu o protecție avansată cu spectru larg SPF 50+ împotriva radiațiilor UVA și UVB, această loțiune ultra-lejeră apără tenul de foto-îmbătrânire, pete pigmentare și degradarea colagenului. Textura sa modernă, fără urme albe și fără senzație grasă, se contopește invizibil cu pielea și constituie o bază impecabilă de machiaj.
+      </p>
+      <div class="routine-step-tip">
+        <strong>Mod de aplicare:</strong> Aplicați generos și uniform pe față, gât și urechi cu 15-20 de minute înainte de expunerea la soare, ca ultim pas al ritualului de dimineață. Reaplicați pe parcursul zilei dacă este necesar.
+      </div>
+      <div class="routine-step-action">
+        <a href="/products/protectie-solara-spf-50" class="btn btn-secondary">Descoperă produsul</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- Grand Collection Call to Action -->
+<div class="routine-cta-card" style="margin-top: 80px;">
+  <div class="gold-arc-divider" style="margin-top: 0;">
+    <span></span>
+    <svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="3"/></svg>
+    <span></span>
+  </div>
+
+  <h2 style="font-size: 2.1rem; margin-bottom: 14px;">Ești gata să începi ritualul Sola Skin?</h2>
+
+  <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-muted); max-width: 620px; margin: 0 auto 28px;">
+    Descoperă întreaga colecție creată pentru momentele în care alegi să te pui pe primul loc. Formule curate, elegante și eficiente.
+  </p>
+
+  <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary" style="padding: 16px 36px; font-size: 0.95rem;">
+    Descoperă întreaga colecție
+  </a>
+
+  <div class="routine-cta-badges">
+    <div class="routine-cta-badge-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+      <span>Livrare gratuită peste 250 RON</span>
+    </div>
+    <div class="routine-cta-badge-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Testat dermatologic</span>
+    </div>
+    <div class="routine-cta-badge-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+      <span>Formule curate &amp; vegane</span>
+    </div>
+  </div>
+</div>

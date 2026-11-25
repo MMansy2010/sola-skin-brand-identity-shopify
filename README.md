@@ -22,13 +22,13 @@ sola-skin-brand-identity-shopify/
 ├── .gitignore                         # Standard git ignore rules (zero secrets, zero logs)
 │
 ├── shopify-theme/                     # Shopify Online Store 2.0 Theme Source
-│   ├── assets/                        # CSS, JS, SVG brandmarks, and editorial imagery
+│   ├── assets/                        # CSS, JS, SVG brandmarks, and high-res editorial photography
 │   ├── config/                        # Theme settings schema & default settings data
 │   ├── layout/                        # Base HTML shell (theme.liquid)
 │   ├── locales/                       # Translations (Romanian ro.json, English en.default.json)
-│   ├── sections/                      # 18 modular Liquid sections (hero, product, etc.)
-│   ├── snippets/                      # Reusable components (cart drawer, price, icons)
-│   └── templates/                     # 13 JSON template architectures (OS 2.0 standard)
+│   ├── sections/                      # 19 modular Liquid sections (hero, routine, product, etc.)
+│   ├── snippets/                      # 10 reusable components (cart drawer, routine content, price)
+│   └── templates/                     # 10 JSON template architectures (OS 2.0 standard)
 │
 ├── brand-identity/                    # Core Brand Design Deliverables
 │   ├── logos/                         # Vector SVG brandmarks (Light, Dark, Monogram, Icons)
@@ -93,7 +93,7 @@ The theme in `shopify-theme/` is built specifically for **Shopify Online Store 2
 > **IMPORTANT DISCLAIMER FOR STORE MERCHANTS:**  
 > The products, prices, descriptions, store policies, business hours, and contact details included in this repository are **conceptual demo placeholders** created for design demonstration and contest submission purposes:
 
-1. **Products & Inventory:** Product names (*Serum pentru față*, *Cremă hidratantă*, *Gel de curățare delicat*), sample prices, and image mockups must be replaced with the merchant's actual catalog, real SKUs, barcodes, and live inventory.
+1. **Products & Inventory:** Product names (*Serum pentru față*, *Cremă hidratantă*, *Gel de curățare delicat*, *Cremă protecție solară SPF 50+*), sample prices, and image mockups must be replaced with the merchant's actual catalog, real SKUs, barcodes, and live inventory.
 2. **Contact Details:** The contact email (`contact@solaskin.ro`), address (`București, România`), and hours (`Luni – Vineri: 09:00 – 17:00`) are sample placeholders and must be updated to the merchant's real business contact channels in Shopify Admin.
 3. **Legal Policies:** Footer links point to Shopify's standard policy routes (`/policies/shipping-policy`, `/policies/refund-policy`, `/policies/terms-of-service`, `/policies/privacy-policy`). Actual legal copy must be configured under `Shopify Admin > Settings > Policies`.
 4. **No Fictional Medical/Ingredient Claims:** The theme intentionally avoids making unverified chemical, SPF, or clinical claims; product informational accordions remain hidden until real data is supplied by the store owner.

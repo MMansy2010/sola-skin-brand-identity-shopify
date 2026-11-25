@@ -1,0 +1,355 @@
+<section class="section-routine-page" style="background-color: {{ section.settings.bg_color }};">
+  <div class="page-container">
+    
+    <!-- Header Banner -->
+    <div class="routine-page-banner">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="editorial-tag">{{ section.settings.eyebrow | escape }}</div>
+      {%- endif -%}
+      <h1 style="margin: 12px 0 16px;">{{ section.settings.title | default: 'Rutina Zilnică' | escape }}</h1>
+      {%- if section.settings.subtitle != blank -%}
+        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-muted); max-width: 660px; margin: 0 auto;">
+          {{ section.settings.subtitle | escape }}
+        </p>
+      {%- endif -%}
+
+      <div class="gold-arc-divider">
+        <span></span>
+        <svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="3"/></svg>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Timeline of Routine Steps -->
+    <div class="routine-timeline">
+      {%- for block in section.blocks -%}
+        {%- assign product = block.settings.product -%}
+        {%- assign product_url = block.settings.product_url | default: product.url | default: routes.all_products_collection_url -%}
+        {%- assign product_title = block.settings.product_name | default: product.title -%}
+
+        <article class="routine-step-row" {{ block.shopify_attributes }}>
+          <!-- Step Media -->
+          <div class="routine-step-media">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                alt="{{ block.settings.image.alt | default: product_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {%- elsif product != blank and product.featured_media != blank -%}
+              <img
+                src="{{ product.featured_media | image_url: width: 800 }}"
+                alt="{{ product.featured_media.alt | default: product_title | escape }}"
+                loading="lazy"
+                width="{{ product.featured_media.width }}"
+                height="{{ product.featured_media.height }}"
+              >
+            {%- else -%}
+              {%- assign asset_file = block.settings.image_asset | default: 'product-serum.jpg' -%}
+              <img
+                src="{{ asset_file | asset_url }}"
+                alt="{{ product_title | escape }}"
+                loading="lazy"
+                width="1122"
+                height="1402"
+              >
+            {%- endif -%}
+
+            {%- if block.settings.badge != blank -%}
+              <div class="routine-step-badge">
+                <span class="badge badge-gold">{{ block.settings.badge | escape }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- Step Narrative -->
+          <div class="routine-step-body">
+            <div class="routine-step-header">
+              <span class="routine-step-index">{{ block.settings.step_number }}</span>
+              {%- if block.settings.tag != blank -%}
+                <span class="routine-step-tag">{{ block.settings.tag | escape }}</span>
+              {%- endif -%}
+            </div>
+
+            <h2 class="routine-step-heading">{{ block.settings.title | escape }}</h2>
+
+            {%- if product_title != blank -%}
+              <div class="routine-step-product-callout">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                </svg>
+                <span>{{ product_title | escape }}</span>
+              </div>
+            {%- endif -%}
+
+            <div class="routine-step-text">
+              {{ block.settings.description }}
+            </div>
+
+            {%- if block.settings.how_to_use != blank -%}
+              <div class="routine-step-tip">
+                <strong>Mod de aplicare:</strong> {{ block.settings.how_to_use | escape }}
+              </div>
+            {%- endif -%}
+
+            <div class="routine-step-action">
+              <a href="{{ product_url }}" class="btn btn-secondary">
+                {{ block.settings.button_label | default: 'Descoperă produsul' | escape }}
+              </a>
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <!-- Grand Collection Call to Action -->
+    {%- if section.settings.show_collection_cta -%}
+      <div class="routine-cta-card">
+        <div class="gold-arc-divider" style="margin-top: 0;">
+          <span></span>
+          <svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="3"/></svg>
+          <span></span>
+        </div>
+
+        <h2 style="font-size: 2.1rem; margin-bottom: 14px;">
+          {{ section.settings.cta_title | default: 'Ești gata să începi ritualul Sola Skin?' | escape }}
+        </h2>
+
+        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--color-muted); max-width: 620px; margin: 0 auto 28px;">
+          {{ section.settings.cta_subtitle | default: 'Descoperă întreaga colecție creată pentru momentele în care alegi să te pui pe primul loc.' | escape }}
+        </p>
+
+        <a href="{{ section.settings.cta_button_link | default: routes.all_products_collection_url }}" class="btn btn-primary" style="padding: 16px 36px; font-size: 0.95rem;">
+          {{ section.settings.cta_button_text | default: 'Descoperă întreaga colecție' | escape }}
+        </a>
+
+        <div class="routine-cta-badges">
+          <div class="routine-cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Livrare gratuită peste 250 RON</span>
+          </div>
+          <div class="routine-cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Testat dermatologic</span>
+          </div>
+          <div class="routine-cta-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <span>Formule curate & vegane</span>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rutină Zilnică",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Etichetă (Eyebrow)",
+      "default": "Ghidul Tău Zilnic"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titlu pagină",
+      "default": "Rutina Zilnică"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitlu",
+      "default": "Patru pași esențiali concepuți pentru a fi urmați dimineața și seara, dezvăluind luminozitatea, echilibrul și sănătatea naturală a tenului tău."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare fundal",
+      "default": "#FAF8F5"
+    },
+    {
+      "type": "header",
+      "content": "Apel la acțiune (Colecție)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_cta",
+      "label": "Afișează secțiune CTA colecție",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "Titlu CTA",
+      "default": "Ești gata să începi ritualul Sola Skin?"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_subtitle",
+      "label": "Subtitlu CTA",
+      "default": "Descoperă întreaga colecție creată pentru momentele în care alegi să te pui pe primul loc."
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Text buton CTA",
+      "default": "Descoperă întreaga colecție"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Link buton CTA"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Pas din rutină",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Număr pas",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Etichetă / Moment",
+          "default": "Pasul 01 · Dimineața & Seara"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titlu pas",
+          "default": "Curățare delicată & echilibru"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Produs asociat (Shopify)"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Nume produs (afișat)",
+          "default": "Gel de curățare delicat (Gentle Cleanser)"
+        },
+        {
+          "type": "url",
+          "id": "product_url",
+          "label": "Link produs (opțional/personalizat)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagine pas (Shopify)"
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Nume fișier imagine din assets (fallback)",
+          "default": "product-cleanser.jpg"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Etichetă / Badge",
+          "default": "Pasul 1"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descriere detaliată",
+          "default": "Primul pas esențial al oricărei rutine sănătoase de îngrijire. O formulă fină și catifelată, concepută pentru a îndepărta cu blândețe impuritățile, excesul de sebum și urmele poluării urbane, fără a altera bariera hidrolipidică naturală a pielii."
+        },
+        {
+          "type": "textarea",
+          "id": "how_to_use",
+          "label": "Instrucțiuni de aplicare",
+          "default": "Umeziți fața cu apă călduță. Aplicați o cantitate mică de gel și masați circular timp de 60 de secunde, apoi clătiți abundent."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Text buton produs",
+          "default": "Descoperă produsul"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rutină Zilnică",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "tag": "Pasul 01 · Dimineața & Seara",
+            "title": "Curățare delicată & echilibru",
+            "product_name": "Gel de curățare delicat (Gentle Cleanser)",
+            "product_url": "/products/gel-de-curatare-delicat",
+            "image_asset": "product-cleanser.jpg",
+            "badge": "Pasul 1",
+            "description": "Primul pas esențial al oricărei rutine sănătoase de îngrijire. O formulă fină și catifelată, concepută pentru a îndepărta cu blândețe impuritățile, excesul de sebum și urmele poluării urbane, fără a altera bariera hidrolipidică naturală a pielii. Tenul rămâne perfect curat, calmat și pregătit pentru absorbția optimă a ingredientelor active.",
+            "how_to_use": "Umeziți fața cu apă călduță. Aplicați o cantitate mică de gel și masați circular timp de 60 de secunde, apoi clătiți abundent cu apă călduță.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "tag": "Pasul 02 · Concentrat de revitalizare",
+            "title": "Revitalizare profundă & luminozitate",
+            "product_name": "Serum pentru față (Renewing Face Serum)",
+            "product_url": "/products/serum-pentru-fata",
+            "image_asset": "product-serum.jpg",
+            "badge": "Pasul 2",
+            "description": "Inima ritualului de îngrijire Sola Skin. Acest serum lejer și intens hidratant pătrunde adânc în straturile epidermei, oferind un aport concentrat de nutrienți și antioxidanți. Susține regenerarea celulară, îmbunătățește textura tenului și îi conferă acea strălucire naturală și odihnită, caracteristică pielii sănătoase.",
+            "how_to_use": "Dozați 3-4 picături în palme și presați ușor pe ten, gât și decolteu până la absorbția completă.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "tag": "Pasul 03 · Hrănire & confort de durată",
+            "title": "Hidratare profundă & protecție",
+            "product_name": "Cremă hidratantă (Hydrating Cream)",
+            "product_url": "/products/crema-hidratanta",
+            "image_asset": "product-cream.jpg",
+            "badge": "Pasul 3",
+            "description": "Pasul care sigilează hidratarea și oferă protecție pe parcursul întregii zile. O textură onctuoasă, dar lejeră, ce îmbracă tenul într-un voal de catifelare. Ajută la refacerea barierei protectoare, previne pierderea transepidermică de apă și lasă pielea suplă, elastică și profund reconfortată.",
+            "how_to_use": "Aplicați o cantitate moderată pe față și masați delicat dinspre centru spre exterior până la absorbție.",
+            "button_label": "Descoperă produsul"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "04",
+            "tag": "Pasul 04 · Ultimul pas de dimineață",
+            "title": "Protecție solară zilnică SPF 50+",
+            "product_name": "Protecție solară zilnică SPF 50+ (Daily Sunscreen SPF 50+)",
+            "product_url": "/products/protectie-solara-spf-50",
+            "image_asset": "product-sunscreen.jpg",
+            "badge": "Pasul 4",
+            "description": "Pasul nenegociabil al fiecărei dimineți pentru menținerea tinereții și sănătății pielii. Cu o protecție avansată cu spectru larg SPF 50+ împotriva radiațiilor UVA și UVB, această loțiune ultra-lejeră apără tenul de foto-îmbătrânire, pete pigmentare și degradarea colagenului. Textura sa modernă, fără urme albe și fără senzație grasă, se contopește invizibil cu pielea și constituie o bază impecabilă de machiaj.",
+            "how_to_use": "Aplicați generos și uniform ca ultim pas al ritualului de dimineață, cu 15 minute înainte de expunerea la soare. Reaplicați după caz.",
+            "button_label": "Descoperă produsul"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -20,6 +20,10 @@
           text: 'Completează formularul de mai jos, iar echipa noastră îți va răspunde în cel mai scurt timp.'
         %}
       </div>
+    {%- elsif page.handle == 'rutina-zilnica' or page.handle == 'rutina-ta' and template.suffix != 'routine' -%}
+      <div class="routine-page-fallback">
+        {% render 'routine-content' %}
+      </div>
     {%- endif -%}
   </div>
 </section>

@@ -180,6 +180,7 @@
 | Newsletter Title | `Rămâi aproape de Sola Skin.` |
 | Newsletter Placeholder | `Adresa ta de e-mail` |
 | Newsletter Button | `Abonează-mă` |
-| Product 1 Title | `Serum pentru față` (30 ml) |
-| Product 2 Title | `Cremă hidratantă` (50 ml) |
-| Product 3 Title | `Gel de curățare delicat` (100 ml) |
+| Product 1 Title | `Gel de curățare delicat` (100 ml) |
+| Product 2 Title | `Serum pentru față` (30 ml) |
+| Product 3 Title | `Cremă hidratantă` (50 ml) |
+| Product 4 Title | `Cremă protecție solară SPF 50+` (50 ml) |
